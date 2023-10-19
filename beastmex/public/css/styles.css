@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(imagenes/fondo.png);
+    background-size: cover;/* Imagen al tamaño de la pantalla*/
+    background-repeat: no-repeat;/* Para que no se repita la imagen de fondo */
+    
+}
+img{
+    margin: 0%;
+    padding: auto;
+    width: 400px; /* ancho */
+    height: 300px; /* Alto */
+    position: relative;
+    top: 150px; ;/* Abajo*/
+    right: 50px; ; /*izquierda*/
+    left: 30px; /*derecha*/
+}
+.card{
+    width:300px;
+    height: 450px;
+    position: relative;
+    top: -250px;
+    right:100px;
+    left:370px;
+    background:#d9d9d9;
+    border-radius: 30px;
+    box-shadow: 1px 1px 4px #ece8e8;
+}
+.card{
+    background-color:#d9d9d9;
+    color: black;
+}
+
+.form{
+    padding: 150px, 100px;
+    text-align: center;
+}
+.form h1{
+    font-size: 30px;
+    margin-bottom: 25px;
+    top: 20px;
+}
+input[type="email"],input[type="password"] {
+    background-color:#c1d4d8;
+    height: 40px;
+}
+label{
+    font-weight: bold;/*Poner las letras en negrita */
+    position: relative;
+    right: 70px;
+}
