@@ -9,6 +9,7 @@
 <body>
     @yield('contenido')
     @include('partials.navb')
+    <br>
     @yield('compras')
     @yield('almacen')
     

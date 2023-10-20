@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('titulo','Inicio')
 @section('contenido')
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <h1 class="display-1 text-center text-white"></h1>
     <div class="container">
         <img src="css/imagenes/logo.png" alt="#">
