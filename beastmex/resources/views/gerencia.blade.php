@@ -49,6 +49,6 @@
             <button class="btn btn-danger" type="button">GENERAR PDF</button>
         </div>
     </div>
-
+..
 
 @endsection
