@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 @section('titulo','Inicio')
-@section('contenido')
+@section('login')
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <h1 class="display-1 text-center text-white"></h1>
     <div class="container">
