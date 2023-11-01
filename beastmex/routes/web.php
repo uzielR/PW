@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+/* 
 Route::get('/', function () {
     return view('login');
 });
@@ -20,12 +20,20 @@ Route::get('/', function () {
 Route::get('/almacen', function () {
     return view('almacen');
 });
-Route::get('/modal', function () {
-    return view('modal');
-});
 Route::get('/almRegistro', function () {
     return view('almRegistro');
 });
 Route::get('/compras', function () {
     return view('compras');
+});
+ */
+
+use App\Http\Controllers\beastmexController;// instruccion que se necesita para hacer el controlador 
+ Route::controller(beastmexController::class)->group(function(){
+    Route::get('/','metodoInicio')->name('apodoInicio');
+    Route::get('/almacen', 'metodoalmacen')->name('apodoalmacen');
+    Route::get('/almRegistro', 'metodoalmacenRegistro')->name('apodoalmacenRegistro');
+    Route::get('/compras', 'metodocompras')->name('apodocompras');
+
+    /* Route::post('/guardarli','guardarlibro')->name('apodoguardarli');   */
 });

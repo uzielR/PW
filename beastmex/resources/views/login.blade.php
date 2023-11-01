@@ -1,3 +1,7 @@
+
+@extends('layouts.plantilla1')
+@section('titulo','Inicio')
+@section('login')
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,17 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/js/app.js'])
     <title>@yield('titulo')</title>
-
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <h1 class="display-1 text-center text-white"></h1>
     <div class="container">
         <img src="css/imagenes/logo.png" alt="#">
     </div>
-  </head>
-  
- <body>
-  
-
+    
     <div class=" card container text-center mb-2 p-4">
         <form method="#" class="row">
             <h1 class="text-center mb-4">LOGIN</h1>
@@ -46,4 +45,4 @@
     </div>
     
     
- </body>
+ @endsection

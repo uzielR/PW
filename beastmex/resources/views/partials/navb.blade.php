@@ -10,12 +10,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/almRegistro">REGISTRO</a>
                 </li>
-                
                 <li class="nav-item">
                     <a class="nav-link" href="/compras">COMPRAS</a>
                 </li>
+                
             </ul>
         </div>
     </head>
 </nav>
-.
