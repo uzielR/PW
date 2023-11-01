@@ -1,4 +1,4 @@
-@extends('layouts.plantilla')
+@extends('layouts.plantilla1')
 @section('titulo','Inicio')
 @section('login')
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">

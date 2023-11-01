@@ -7,10 +7,6 @@
     <title>@yield('titulo')</title>
 </head>
 <body>
-    @include('partials.navb')
     @yield('login')
-    @yield('compras')
-    @yield('almacen')
-    @include('partials.modal')
 </body>
 </html>
