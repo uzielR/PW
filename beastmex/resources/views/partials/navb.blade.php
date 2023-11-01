@@ -4,17 +4,16 @@
         <img class="Logo" src="css/imagenes/logo.ico" >
         <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
-                @if(session()->has('Almacen'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="/almacen">INVENTARIO.</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/almRegistro">REGISTRO</a>
-                    </li>
-                @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="/almacen">INVENTARIO.</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/almRegistro">REGISTRO</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/compras">COMPRAS</a>
                 </li>
+                
             </ul>
         </div>
     </head>
