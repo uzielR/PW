@@ -1,8 +1,3 @@
-
-@extends('layouts.plantilla')
-@section('titulo','Inicio')
-@section('login')
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/js/app.js'])
     <title>@yield('titulo')</title>
-
 
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <h1 class="display-1 text-center text-white"></h1>
