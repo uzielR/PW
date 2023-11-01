@@ -7,8 +7,14 @@
     <title>@yield('titulo')</title>
 </head>
 <body>
+
     @yield('partials.navb')
     @yield('login')
+
+    @yield('contenido')
+    @include('partials.navb')
+    <br>
+
     @yield('compras')
     @yield('almacen')
     

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
 
     <head>
-        <img class="Logo" src="css/imagenes/logo.ico">
+        <img class="Logo" src="css/imagenes/logo.ico" >
         <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
