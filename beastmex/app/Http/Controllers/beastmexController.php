@@ -19,6 +19,9 @@ class beastmexController extends Controller
 
         return view('almRegistro');
 
+
+        return view('almRegistro');
+
         $now = now();
         return view('almRegistro', ['now' => $now]);
 
