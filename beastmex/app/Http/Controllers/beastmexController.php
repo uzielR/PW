@@ -17,6 +17,7 @@ class beastmexController extends Controller
     }
     public function metodoalmacenRegistro(){
 
+
         $now = now();
         return view('almRegistro', ['now' => $now]);
 
