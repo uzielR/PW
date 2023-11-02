@@ -12,17 +12,35 @@ class beastmexController extends Controller
         return view('login');
     }
     public function metodoalmacen(){
-        return view('almacen');
+        $now = now();
+        return view('almacen', ['now' => $now]);
     }
     public function metodoalmacenRegistro(){
-        return view('almaRegistro');
+
+
+        $now = now();
+        return view('almRegistro', ['now' => $now]);
+
     }
     public function metodocompras(){
-        return view('compras');
+        $now = now();
+        return view('compras', ['now' => $now]);
     }
-    public function metodoventas(){
-        return view('ventas');
+    public function metodogerencia(){
+        $now = now();
+        return view('gerencia', ['now' => $now]);
     }
+    /* public function metodomodal(){
+        return view('modalesalma');
+    } */
+    public function metodoeditarProducto(beastmexValidador $req)
+    {
+        // Si la validación pasa, se llegará a este punto
+        // Realiza alguna acción y luego redirige
+        return redirect('/modal')->with('confirmacion', 'Tu recuerdo llegó al controlador');
+    }
+
+
     
 
 }

@@ -1,4 +1,7 @@
-{{-- INICIO DE MODAL --}}
+@extends('layouts.plantilla')
+@section('titulo','Almacen')
+@section('almacen')
+    {{-- INICIO DE MODAL --}}
 <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-toggle="modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -8,7 +11,7 @@
             </div>
             <div class="modal-body">
                 <div class="row g-2">
-                    <form method="POST" action="/editarProducto">
+                    <form method="POST" action="/modal">
                         @csrf 
                         <div class="col-md">
                             <div class="mb-3">
@@ -145,3 +148,4 @@
        </div>
     </div>
 </div> --}}
+@endsection

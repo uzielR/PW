@@ -6,6 +6,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/almacen">INVENTARIO.</a>
+                    <a class="nav-link" href="/almacen">INVENTARIO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/almRegistro">REGISTRO</a>
@@ -13,11 +14,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/compras">COMPRAS</a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="/ventas">VENTAS</a>
+                    <a class="nav-link" href="/gerencia">GERENCIA</a>
                 </li>
-                 
-                
             </ul>
         </div>
     </head>
