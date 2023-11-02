@@ -15,7 +15,7 @@ class beastmexController extends Controller
         return view('almacen');
     }
     public function metodoalmacenRegistro(){
-        return view('almaRegistro');
+        return view('almRegistro');
     }
     public function metodocompras(){
         return view('compras');
