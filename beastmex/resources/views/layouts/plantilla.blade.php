@@ -21,7 +21,7 @@
         </main>
 
         <footer class="footer">
-            @component('partials.footer', ['now' => $now])
+            @component('partials.footer', ['now'=>$now])
             @endcomponent
 
         </footer>
