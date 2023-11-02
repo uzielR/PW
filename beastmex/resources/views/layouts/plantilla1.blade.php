@@ -6,7 +6,21 @@
     @vite(['resources/js/app.js'])
     <title>@yield('titulo')</title>
 </head>
-<body>
-    @yield('login')
-</body>
+
+    <body>
+
+        <header>
+
+        </header>
+
+        <main>
+            <!-- Aquí va el contenido principal de tu página -->
+            @yield('login')
+        </main>
+
+        <footer>
+
+        </footer>
+
+    </body>
 </html>

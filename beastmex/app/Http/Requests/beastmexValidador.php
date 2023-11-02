@@ -23,6 +23,14 @@ class beastmexValidador extends FormRequest
     {
         return [
             //
+            'Nombre'=>'required',
+            'Marca'=>'required',
+            'Cantidad'=>'required|numeric',
+            'Costo'=>'required|numeric',
+            'Precio'=>'required|numeric',
+            'Fecha_ingreso'=>'required|date',
+            'foto'=>'required'
+            
         ];
     }
 }
