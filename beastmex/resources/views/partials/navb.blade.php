@@ -13,6 +13,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/compras">COMPRAS</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ventas">VENTAS</a>
+                </li>
+                 
                 
             </ul>
         </div>

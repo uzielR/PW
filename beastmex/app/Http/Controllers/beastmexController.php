@@ -20,7 +20,9 @@ class beastmexController extends Controller
     public function metodocompras(){
         return view('compras');
     }
-
+    public function metodoventas(){
+        return view('ventas');
+    }
     
 
 }
