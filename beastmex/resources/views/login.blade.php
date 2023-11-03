@@ -1,4 +1,3 @@
-
 @extends('layouts.plantilla1')
 @section('titulo','Inicio')
 @section('login')
@@ -41,4 +40,3 @@
 
 
 @endsection
-
