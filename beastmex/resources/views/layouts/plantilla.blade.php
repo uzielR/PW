@@ -10,13 +10,16 @@
     <body>
 
         <header>
-
+            @include('partials.navb')
         </header>
 
         <main>
-            @include('partials.navb')
+
             @yield('compras')
             @yield('almacen')
+            <div class="contenidoGerencia">
+                @yield('gerencia')
+            </div>
             @include('partials.modal')
         </main>
 

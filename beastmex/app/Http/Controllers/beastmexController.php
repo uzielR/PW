@@ -17,6 +17,10 @@ class beastmexController extends Controller
     }
     public function metodoalmacenRegistro(){
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin
         $now = now();
         return view('almRegistro', ['now' => $now]);
 
@@ -27,7 +31,7 @@ class beastmexController extends Controller
     }
     public function metodogerencia(){
         $now = now();
-        return view('gerencia', ['now' => $now]);
+        return view('gerenciaRegistro', ['now' => $now]);
     }
     /* public function metodomodal(){
         return view('modalesalma');

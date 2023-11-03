@@ -13,8 +13,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/compras">COMPRAS</a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="/gerencia">GERENCIA</a>
+                    <a class="nav-link" href="/gerenciaRegistro">GERENCIA</a>
                 </li>
             </ul>
         </div>
