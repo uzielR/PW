@@ -28,7 +28,7 @@ class beastmexController extends Controller
     }
     public function metodogerencia(){
         $now = now();
-        return view('gerencia', ['now' => $now]);
+        return view('gerenciaRegistro', ['now' => $now]);
     }
     /* public function metodomodal(){
         return view('modalesalma');
