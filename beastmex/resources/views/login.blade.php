@@ -27,7 +27,7 @@
         <ul class="dropdown-menu p-4">
           <li><a class="dropdown-item" href="/almacen">Almacen</a></li>
           <li><a class="dropdown-item" href="/compras">Compras</a></li>
-          <li><a class="dropdown-item" href="#">Ventas</a></li>
+          <li><a class="dropdown-item" href="/ventas">Ventas</a></li>
           <li><a class="dropdown-item" href="#">Gerencia</a></li>
         </ul>
       </div> --}}

@@ -17,6 +17,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/gerencia">GERENCIA</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ventas">VENTAS</a>
+                </li>
+
             </ul>
         </div>
     </head>

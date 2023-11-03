@@ -30,6 +30,14 @@ class beastmexController extends Controller
         $now = now();
         return view('gerencia', ['now' => $now]);
     }
+    public function metodoventas(){
+        $now = now();
+        return view('ventas', ['now' => $now]);
+    }
+
+
+
+
     /* public function metodomodal(){
         return view('modalesalma');
     } */
