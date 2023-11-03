@@ -87,6 +87,6 @@
               </svg> ORDENES DE COMPRAS</button>
         </div>
     </div>
-@endsection
+@endsection <!-- end section Almacén ?? -->
 
 @endsection

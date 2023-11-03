@@ -35,6 +35,9 @@ use App\Http\Controllers\beastmexController;// instruccion que se necesita para 
     Route::get('/almRegistro', 'metodoalmacenRegistro')->name('apodoalmacenRegistro');
     Route::get('/compras', 'metodocompras')->name('apodocompras');
 
+    Route::get('/gerenciaRegistro', 'metodogerencia')->name('apodogerencia');
+
+
     Route::get('/ventas', 'metodoventas')->name('apodoventas');
 
     /* Route::post('/guardarli','guardarlibro')->name('apodoguardarli');   */
