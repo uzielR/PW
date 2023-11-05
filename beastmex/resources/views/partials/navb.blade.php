@@ -1,8 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
 
-    <head class="navigation-bar"> @include('partials.navb')
-        
-        
+    <head class="navigation-bar">
         <div class="logo-container">
             <img class="Logo" src="css/imagenes/logo.ico" >
         </div>
