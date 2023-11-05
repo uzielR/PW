@@ -7,7 +7,6 @@ body{
     background-image: url(imagenes/fondo.png);
     background-size: cover;/* Imagen al tamaño de la pantalla*/
     background-repeat: no-repeat;/* Para que no se repita la imagen de fondo */
-    
 }
 img{
     margin: 0%;
