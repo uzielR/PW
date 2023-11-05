@@ -1,14 +1,13 @@
-
-<footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-5">
-          <p class="text-justify text-center">Copyright © 2023 All rights reserved by: beastmex</p>
-        </div>
-      
-        <div class="col-sm-12 col-md-5">
-          <p class="text-justify text-center site-footer"> Hoy es: {{ $now->format('d-m-Y') }}</p>
-        </div>
-
+<footer class="footer shadow">
+  <div class="text-center p-2">
+    <div class="biblioteca">
+      <p>BEASTMEX</p>
     </div>
-  </footer>
+    <div class="copyright">
+      <p>&copy; 2023 Graciela Álvarez González</p>
+    </div>
+    <div class="fecha">
+      <p>Fecha: <span id="fechaActual">27 de Octubre del 2023</span></p>
+    </div>
+  </div>
+</footer>

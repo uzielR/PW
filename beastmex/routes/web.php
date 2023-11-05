@@ -30,20 +30,27 @@ Route::get('/compras', function () {
 
 use App\Http\Controllers\beastmexController;// instruccion que se necesita para hacer el controlador 
  Route::controller(beastmexController::class)->group(function(){
+    /* LOGIN */
     Route::get('/','metodoInicio')->name('apodoInicio');
+    /* ALMACEN */
     Route::get('/almacen', 'metodoalmacen')->name('apodoalmacen');
-    Route::get('/almRegistro', 'metodoalmacenRegistro')->name('apodoalmacenRegistro');
+    Route::get('/almacen3', 'metodoalmacen3')->name('apodoalmacen3');
+    Route::get('/almacen2', 'metodoalmacen2')->name('apodoalmacen2');
+    /* COMPRAS */
     Route::get('/compras', 'metodocompras')->name('apodocompras');
-
-    Route::get('/gerenciaRegistro', 'metodogerencia')->name('apodogerencia');
-
-
+    Route::get('/proveedores', 'metodoproveedores')->name('apodoproveedores');
+    Route::get('/editarproveedores', 'metodoeditarproveedores')->name('apodoeditarproveedores');
+    Route::get('/crearOrden', 'metodocrearOrden')->name('apodocrearOrden');
+    /* VENTAS */
     Route::get('/ventas', 'metodoventas')->name('apodoventas');
-
-    /* Route::post('/guardarli','guardarlibro')->name('apodoguardarli');   */
-
-    Route::get('/gerencia', 'metodogerencia')->name('apodogerencia');
-    /* Route::get('/modal', 'metodomodal')->name('apodomodal'); */
-    Route::post('/editarProducto','metodoeditarProducto')->name('apodoeditarProducto');
-
+    /* GERENCIA */
+    Route::get('/gerenciaRegistro', 'metodogerencia')->name('apodogerencia');
+    
+    
+    /* SESION METODO POST */
+    Route::post('/login','metodologin')->name('apodologin');
+    /*GUARDAR ALMCAEN */
+    Route::post('/editaralmacen','metodoeditaralmacen')->name('apodoeditaralmacen');
+    /*GUARDAR REGISTRO */
+    Route::post('/guardarRegistro','metodoguardarRegistro')->name('apodoguardarRegistro');
 });

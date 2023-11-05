@@ -44,7 +44,7 @@ img{
     margin-bottom: 25px;
     top: 20px;
 }
-input[type="email"],input[type="password"] {
+input[type="text"]{
     background-color:#c1d4d8;
     height: 40px;
 }

@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/js/app.js'])
     <title>@yield('titulo')</title>
+    
 </head>
 
-    <body>
+<body>
+    
+    @if(!Request::is('almacen3','editarproveedores',)) <!-- Comprueba que no sea la página 'almaceneditar' -->
+    
+        @include('partials.navb')
 
-        <header>
-            @include('partials.navb')
-        </header>
+    @endif
 
-        <main>
+    <main>
+        @yield('compras')
+        @yield('almacen')
+        @yield('gerencia')
+        @yield('almaceneditar')
+        @yield('ventas')
+        @yield('proveedores')
+    </main>
 
-            @yield('compras')
-            @yield('almacen')
-            <div class="contenidoGerencia">
-                @yield('gerencia')
-            </div>
-            @include('partials.modal')
-        </main>
-
-        <footer class="footer">
-            @component('partials.footer', ['now'=>$now])
-            @endcomponent
-
-        </footer>
-
-    </body>
+    <footer class="footer">
+        @component('partials.footer')
+        @endcomponent
+    </footer>
+</body>
 </html>
