@@ -29,6 +29,8 @@ Route::get('/compras', function () {
  */
 
 use App\Http\Controllers\beastmexController;// instruccion que se necesita para hacer el controlador 
+use App\Http\Controllers\ProductoController;
+
  Route::controller(beastmexController::class)->group(function(){
     /* LOGIN */
     Route::get('/','metodoInicio')->name('apodoInicio');
@@ -39,10 +41,13 @@ use App\Http\Controllers\beastmexController;// instruccion que se necesita para 
     /* COMPRAS */
     Route::get('/compras', 'metodocompras')->name('apodocompras');
     Route::get('/proveedores', 'metodoproveedores')->name('apodoproveedores');
-    Route::get('/editarproveedores', 'metodoeditarproveedores')->name('apodoeditarproveedores');
-    Route::get('/crearOrden', 'metodocrearOrden')->name('apodocrearOrden');
+    Route::get('/proveedoresEditar', 'metodoeditarproveedores')->name('apodoeditarproveedores');
+    Route::get('/comprasCrearOrden', 'metodocrearOrden')->name('apodocrearOrden');
+    Route::get('/comprasVerOrden', 'metodoVerOrden')->name('apodoVerOrden');
+    Route::get('/crearProveedor', 'metodocrearProveedor')->name('apodocrearProveedor');
     /* VENTAS */
     Route::get('/ventas', 'metodoventas')->name('apodoventas');
+    Route::get('/ventaStock', 'metodoventaStock')->name('apodoventaStock');
     /* GERENCIA */
     Route::get('/gerenciaRegistro', 'metodogerencia')->name('apodogerencia');
     
@@ -53,4 +58,6 @@ use App\Http\Controllers\beastmexController;// instruccion que se necesita para 
     Route::post('/editaralmacen','metodoeditaralmacen')->name('apodoeditaralmacen');
     /*GUARDAR REGISTRO */
     Route::post('/guardarRegistro','metodoguardarRegistro')->name('apodoguardarRegistro');
+    
+    Route::resource('Productos', ProductoController::class);
 });

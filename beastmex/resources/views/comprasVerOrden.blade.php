@@ -3,15 +3,75 @@
 @section('compras')
 
 
-    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
-    <h1 class="display-1 text-center text-black">Crear orden</h1>
+   
 
-    @section('almacen')
     <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
 
-
- 
-
-    @endsection 
+    <h2 class="display-3 text-center"> Ordenes</h2>
     
-@endsection
+    <form class="d-flex relative p-3" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+    </form>
+
+
+    <div class=" container">
+         
+    <div class="card shadow container p-4">
+
+
+        
+
+            <table class="table table-striped py-2">
+                <thead>
+                    <tr class="text-center border-1">
+                        <th>No.Orden</th>
+                        <th>Nombre Comprador</th>
+                        <th>Fecha</th>
+                        <th>PDF</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center py-5">
+                        <th scope="row">1</th>
+                        <td>Uziel</td>
+                        <td>Firex</td>
+                        <td>
+                            <a href="comprasVerOrden" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">
+                                <i class="bi bi-file-earmark-pdf-fill"></i>
+                            PDF
+                        </a></td>
+                       
+                    </tr>
+
+                    <tr class="text-center py-5">
+                        <th scope="row">1</th>
+                        <td>Graci</td>
+                        <td>Firex</td>
+                        <td>
+                            <a href="comprasVerOrden" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">
+                                <i class="bi bi-file-earmark-pdf-fill"></i>
+                            PDF
+                        </a></td>
+                       
+                    </tr>
+                    
+                    <tr class="text-center py-5">
+                        <th scope="row">1</th>
+                        <td>nick</td>
+                        <td>Firex</td>
+                        <td>
+                            <a href="comprasVerOrden" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">
+                                <i class="bi bi-file-earmark-pdf-fill"></i>
+                            PDF
+                        </a></td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+            
+    </div>
+
+@endsection 
+    

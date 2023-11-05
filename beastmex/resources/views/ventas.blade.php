@@ -7,9 +7,10 @@
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-outline-primary" type="submit">Buscar</button>
     </form>
-    <div class="card container p-4">
+    <div class="card container p-1">
         <div class="card-body container">
             <table class="table table-striped">
+                <h1 class="display-6 text-center"> TICKET VENTAS</h1>
                 <thead>
                     <tr class="text-center border-1">
                         <th>Fecha</th>
@@ -64,9 +65,78 @@
                     </tr>
                 
                 </tbody>
-                    
-    
             </table>
+
+
+
+            <div class="d-grid p-1 gap-5">
+                <a href="/crearProveedor" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">
+                    <i class="bi bi-receipt"></i>
+                Crear nueva venta</a>
+            </div>
+
+
+
+
         </div>
+
+
+
+
+
     </div>
+
+
+
+
+
+<div class="d-grid p-4 gap-6">
+    <div class=" card container col-mb-8">
+    <h1 class="display-6 text-center">GANANCIAS</h1>
+
+        <div class=" container col-mb-8">
+
+        <table class="table table-striped">
+            <thead>
+                <tr class="text-center border-1">
+                    <th>Enero</th>
+                    <th>Febrero</th>
+                    <th>Marzo</th>
+                    <th>Abril</th>
+                    <th>Mayo</th>
+                    <th>Junio</th>
+                    <th>Julio</th>
+                    <th>Agosto</th>
+                    <th>Septiembre</th>
+                    <th>Octubre</th>
+                    <th>Noviembre</th>
+                    <th>Diciembre</th>
+                    <th> </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center p-4">
+                    <td>1050.00</td>
+                    <td>587</td>
+                    <td>899.90</td>
+                    <td>321</td>
+                    <td>522.50 </td>
+                    <td>222.70</td>
+                    <td>9000</td>
+                    <td>750.00</td>
+                    <td>1500</td>
+                    <td>4000</td>
+                    <td>6000</td>
+                    <td>1200</td>
+
+                </tr>
+                
+
+
+
+</table>
+
+
+
 @endsection

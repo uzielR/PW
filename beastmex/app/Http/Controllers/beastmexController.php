@@ -43,15 +43,30 @@ class beastmexController extends Controller
     }
     public function metodoeditarproveedores(){
         
-        return view('editarproveedor');
+        return view('proveedoresEditar');
     }
     public function metodocrearOrden(){
         
-        return view('crearOrden');
+        return view('comprasCrearOrden');
+    }
+    
+    public function metodoVerOrden(){
+        
+        return view('comprasVerOrden');
+    }
+
+    public function metodocrearProveedor(){
+        
+        return view('crearProveedor');
     }
     
     
-    
+    public function metodoventaStock(){
+        
+        return view('ventaStock');
+    }
+
+
     public function metodologin(Request $request)
     {
         $request->validate([

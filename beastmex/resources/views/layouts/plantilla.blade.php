@@ -24,6 +24,7 @@
         @yield('almaceneditar')
         @yield('ventas')
         @yield('proveedores')
+        @yield('ventasStock')
     </main>
 
     <footer class="footer">

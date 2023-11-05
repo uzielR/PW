@@ -3,6 +3,13 @@
 @section('compras')
     <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
     <h1 class="display-1 text-center">Compras</h1>
+
+    <form class="d-flex relative p-3" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit" >Buscar </button>
+    </form>
+
+
     <div class="card shadow container p-4">
         <div class=" container">
             <h3 class="display-6 text-center text-black">Productos</h3>
@@ -49,10 +56,10 @@
             </table>
             <div class="row py-2">
                 <div class="col gap-2 text-center">
-                    <a href="/crearOrden" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">
+                    <a href="/comprasCrearOrden" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">
                         <i class="bi bi-clipboard2-plus"></i>
                     Crear Orden</a>
-                    <a href="#" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">
+                    <a href="comprasVerOrden" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">
                         <i class="bi bi-journal-text"></i>
                         Ordenes de Compra
                     </a>
