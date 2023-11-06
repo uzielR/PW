@@ -25,13 +25,20 @@ class beastmexController extends Controller
         
         return view('compras');
     }
+    
     public function metodogerencia(){
-       
-        return view('gerenciaRegistro');
+        $now = now();
+        return view('gerenciaRegistro', ['now' => $now]);
     }
+
     public function metodoalmacen3() {
         $fecha = Carbon::now()->format('d-m-Y');
         return view('almacen3', ['fecha' => $fecha]);
+    }
+    
+    public function consultarReportes(){
+        $now = now();
+        return view('gerenciaReporte', ['now' => $now]);
     }
     
     public function metodoventas(){
@@ -66,6 +73,7 @@ class beastmexController extends Controller
         return view('ventaStock');
     }
 
+    
 
     public function metodologin(Request $request)
     {
@@ -98,6 +106,12 @@ class beastmexController extends Controller
         $fecha = Carbon::now()->format('d-m-Y');
 
         return redirect('/almacen2')->with('success', 'Sus cambios fueron guardados')->with('fecha', $fecha);
+    }
+
+
+    public function listarUsuarios(){
+        $now = now();
+        return view('usuarios', ['now' => $now]);
     }
 
     public function metodoguardarOrden(Request $request)

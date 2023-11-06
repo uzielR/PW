@@ -26,6 +26,12 @@
         @yield('proveedores')
         @yield('ventasStock')
         @yield('ordernes')
+        @yield('reportes')
+        @yield('usuarios')
+
+        <div class="contenidoGerencia">
+            @yield('gerenciaRegistro')
+        <div>
     </main>
 
     <footer class="footer">

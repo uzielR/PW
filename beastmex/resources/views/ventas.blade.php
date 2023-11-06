@@ -70,7 +70,7 @@
 
 
             <div class="d-grid p-1 gap-5">
-                <a href="/crearProveedor" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">
+                <a href="/ventaStock" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">
                     <i class="bi bi-receipt"></i>
                 Crear nueva venta</a>
             </div>
