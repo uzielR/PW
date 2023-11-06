@@ -11,7 +11,7 @@
 
 <body>
     
-    @if(!Request::is('almacen3','editarproveedores',)) <!-- Comprueba que no sea la página 'almaceneditar' -->
+    @if(!Request::is('almacen3','editarproveedores')) <!-- Comprueba que no sea la página 'almaceneditar' -->
     
         @include('partials.navb')
 
@@ -25,6 +25,7 @@
         @yield('ventas')
         @yield('proveedores')
         @yield('ventasStock')
+        @yield('ordernes')
     </main>
 
     <footer class="footer">

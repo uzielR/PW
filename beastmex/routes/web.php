@@ -42,7 +42,7 @@ use App\Http\Controllers\ProductoController;
     Route::get('/compras', 'metodocompras')->name('apodocompras');
     Route::get('/proveedores', 'metodoproveedores')->name('apodoproveedores');
     Route::get('/proveedoresEditar', 'metodoeditarproveedores')->name('apodoeditarproveedores');
-    Route::get('/comprasCrearOrden', 'metodocrearOrden')->name('apodocrearOrden');
+    Route::match(['get', 'post'], '/comprasCrearOrden', 'metodocrearOrden')->name('apodocrearOrden');
     Route::get('/comprasVerOrden', 'metodoVerOrden')->name('apodoVerOrden');
     Route::get('/crearProveedor', 'metodocrearProveedor')->name('apodocrearProveedor');
     /* VENTAS */
@@ -58,6 +58,7 @@ use App\Http\Controllers\ProductoController;
     Route::post('/editaralmacen','metodoeditaralmacen')->name('apodoeditaralmacen');
     /*GUARDAR REGISTRO */
     Route::post('/guardarRegistro','metodoguardarRegistro')->name('apodoguardarRegistro');
+    Route::post('/guardarOrden','metodoguardarOrden')->name('apodoguardarOrden');
     
     Route::resource('Productos', ProductoController::class);
 });
