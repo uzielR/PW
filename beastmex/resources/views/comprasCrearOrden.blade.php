@@ -3,7 +3,7 @@
 @section('ordernes')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/sweetalert2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
-    <h1 class="display-3 text-center">Nueva orden</h1>
+    <h1 class="display-3 text-center p-2">Nueva orden</h1>
 
     <div class=" container p-2 ">
       

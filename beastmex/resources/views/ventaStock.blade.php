@@ -2,12 +2,11 @@
 @section('titulo','STOCK')
 @section('ventasStock')
     <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
-
+    <h1 class="display-1 text-center p-3">Nueva Venta</h1>
 
     <div class="container p-5">
         <form action="#">
             <div class="container card p-4">
-                <h1 class="modal-title text-center" id="exampleModalLabel">Nueva Venta</h1>
                 <div class="row g-2">
                     <div class="col-md">
                         <div class="mb-3">

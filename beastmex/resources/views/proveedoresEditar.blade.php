@@ -4,9 +4,9 @@
 
 
 <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
-<h1 class="display-3 text-center">Editar proveedor</h1>
+<h1 class="display-3 text-center p-5">Editar proveedor</h1>
 
-<div class=" container ">
+<div class=" container p-3 ">
     <form action="#">
         <div class="card container text-center border-info " style="Height:auto">
             
@@ -14,7 +14,7 @@
                 <div class="col-md">
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="recipient-name" required>
+                        <input type="text" name="NombreProvedor" class="form-control" id="recipient-name" required>
                     </div>
                 </div>
                 <div class="col-md">

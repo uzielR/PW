@@ -11,7 +11,7 @@
 
 <body>
     
-    @if(!Request::is('almacen3','editarproveedores')) <!-- Comprueba que no sea la página 'almaceneditar' -->
+    @if(!Request::is('almacen3','proveedoresEditar','crearProveedor','comprasCrearOrden','comprasVerOrden','ventaStock','usuarios','gerenciaReporte')) <!-- Comprueba que no sea la página 'almaceneditar' -->
     
         @include('partials.navb')
 
