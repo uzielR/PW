@@ -7,7 +7,6 @@ body{
     background-image: url(imagenes/fondo.png);
     background-size: cover;/* Imagen al tamaño de la pantalla*/
     background-repeat: no-repeat;/* Para que no se repita la imagen de fondo */
-    
 }
 img{
     margin: 0%;
@@ -44,7 +43,7 @@ img{
     margin-bottom: 25px;
     top: 20px;
 }
-input[type="email"],input[type="password"] {
+input[type="text"]{
     background-color:#c1d4d8;
     height: 40px;
 }

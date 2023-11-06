@@ -4,13 +4,15 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(174, 179, 184);
-    background-size: cover;/* Imagen al tamaño de la pantalla*/
+    color: white;
+    background-image: url(imagenes/fondo\ \(2\).png);
+    /* background-color: rgb(174, 179, 184); */
+    background-size:100% 100%;;/* Imagen al tamaño de la pantalla*/
     background-repeat: no-repeat;/* Para que no se repita la imagen de fondo */
     
 }
 .navbar{
-    height: 100px;
+    height: 105px;
     background-color: rgb(8, 8, 8);
     box-shadow: 2px 2px 8px #313030;
 }
@@ -18,27 +20,19 @@ body{
     color: white;
 }
 img{
-    margin: 0%;
+    margin-right: 50px;
     padding: auto;
-    width:100px;
+    width:130px;
     height:auto;
     position: relative;
     right:20px;
     left: 30px;
 }
-a{
-    position: relative;
-    left: 50PX;
-}
+
 table{
     border: 1px;
 }
-.card{
-    top: 30px;
-    position: relative;
-    height: 330px;
 
-}
 input{
     height: 40px;
 }
@@ -46,19 +40,30 @@ input{
 
     width: 500px; /* ancho */
     position: relative;
-    right:20px;
-    left: 760px;
+    right:600px;
+    left: 900px;
+   
 }
 
-.footer{
-    background-color: #26272b;
-    padding: 35px 0; /* Puedes ajustar este valor según tus necesidades */
-    font-size: 20px;
-    line-height: 24px;
-    color: #fff;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    position:-webkit-sticky;
-    width: 100%;
+footer {
+    background-color: #000000;
+    color: #7498b6;
 }
+/* Aplica un margen superior al contenido principal para separarlo del footer */
+main {
+    margin-bottom: 70px; /* Ajusta el valor según el espacio que desees entre el contenido y el footer */
+}
+.h1{
+    color: white;
+}
+/* styles.css */
+
+
+/* Oculta la barra de navegación en la página 'crearOrden' */
+body.crearOrden .navbar-brand {
+    display: none;
+}
+
+
+
+
