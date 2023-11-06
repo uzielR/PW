@@ -4,6 +4,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
     <h2 class="display-1 text-center">Registro</h2>
+    
     <form class="d-flex relative p-3" role="search">
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-outline-primary" type="submit">Buscar</button>

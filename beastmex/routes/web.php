@@ -49,7 +49,10 @@ use App\Http\Controllers\ProductoController;
     Route::get('/ventas', 'metodoventas')->name('apodoventas');
     Route::get('/ventaStock', 'metodoventaStock')->name('apodoventaStock');
     /* GERENCIA */
-    Route::get('/gerenciaRegistro', 'metodogerencia')->name('apodogerencia');
+    Route::get('/gerenciaRegistro', 'metodoGerencia')->name('apodoGerencia');
+    Route::get('/gerenciaReporte', 'consultarReportes')->name('apodoReporte');
+    Route::get('/usuarios', 'listarUsuarios')->name('apodoUsuarios');
+
     
     
     /* SESION METODO POST */
