@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\validadorBeastmex;
+use App\Http\Requests\validadorCompras;
 use Carbon\Carbon;
 class beastmexController extends Controller
 {
@@ -100,33 +101,9 @@ class beastmexController extends Controller
         return redirect('/almacen2')->with('success', 'Sus cambios fueron guardados')->with('fecha', $fecha);
     }
 
-    public function metodoguardarOrden(Request $request)
+    public function metodoguardarOrden(validadorCompras $req)
     {
-        $request->validate([
-            'Empresa'=>'required|alpha',
-            'DireccionEmpresa'=>'required|alpha',
-            'Dirrecion'=>'required',
-            'Condado'=>'required',
-            'Codigopostal'=>'required|numeric|min:4',
-            'Telefono'=>'required|numeric|min:10',
-            'Empresa1'=>'required|alpha',
-            'DireccionEmpresa1'=>'required|alpha',
-            'Dirrecion1'=>'required',
-            'Condado1'=>'required',
-            'Codigopostal1'=>'required|numeric|min:4',
-            'Telefono1'=>'required|numeric|min:10'
-
-        ]);
-        session()->flash('confic', 'Sus cambios fueron guardados con éxito');
-        return redirect('/comprasCrearOrden');
+        
+        return redirect('/comprasCrearOrden')->with('success', 'Sus cambios fueron guardados');
     }
-    /* hhjdfhj */
-
-    
-
-   
-
-
-    
-
 }
