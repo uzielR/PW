@@ -11,7 +11,7 @@
 
 <body>
     
-    @if(!Request::is('almacen3','proveedoresEditar','crearProveedor','comprasCrearOrden','comprasVerOrden','ventaStock','usuarios','gerenciaReporte')) <!-- Comprueba que no sea la página 'almaceneditar' -->
+    @if(!Request::is('almacen3','proveedoresEditar','crearProveedor','comprasCrearOrden','comprasVerOrden','ventaStock','usuarios','gerenciaReporte','proveedoresProductos','ventasGrafica','comprasGrafica','gananciasGrafica')) <!-- Comprueba que no sea la página 'almaceneditar' -->
     
         @include('partials.navb')
 
@@ -28,7 +28,9 @@
         @yield('ordernes')
         @yield('reportes')
         @yield('usuarios')
-
+        @yield('ventasGrafica')
+        @yield('comprasGrafica')
+        @yield('gananciasGrafica')
         <div class="contenidoGerencia">
             @yield('gerenciaRegistro')
         <div>

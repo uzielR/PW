@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('titulo','ordenes')
 @section('ordernes')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/sweetalert2.min.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
     <h1 class="display-3 text-center p-2">Nueva orden</h1>
 
@@ -162,7 +162,7 @@
                     <button class="btn btn-primary" type="button"><i class="bi bi-send"></i></i>Enviar Correo</button>
                     <a href="/compras" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
-                      </svg> Regresar</a>
+                    </svg> Regresar</a>
 
                 </div>
                 

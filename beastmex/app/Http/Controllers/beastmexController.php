@@ -29,7 +29,7 @@ class beastmexController extends Controller
     
     public function metodogerencia(){
         $now = now();
-        return view('gerenciaRegistro', ['now' => $now]);
+        return view('gerenciaRegistro1', ['now' => $now]);
     }
 
     public function metodoalmacen3() {
@@ -86,7 +86,26 @@ class beastmexController extends Controller
         // Si la validación es exitosa se redirige al usuario a la página de almacen.
         return redirect()->route('apodoalmacen');
     }
+    public function metodoproveedoresProductos(){
+        
+        return view('proveedoresProductos');
+    }
+    public function metodoventasGrafica(){
+        
+        return view('/ventasGrafica');
+    }
 
+
+    public function metodocomprasGrafica(){
+        
+        return view('/comprasGrafica');
+    }
+    
+
+    public function metodogananciasGrafica(){
+        
+        return view('/gananciasGrafica');
+    }
 
     public function metodoeditaralmacen(validadorBeastmex $req)
     {
@@ -115,9 +134,89 @@ class beastmexController extends Controller
         return view('usuarios', ['now' => $now]);
     }
 
-    public function metodoguardarOrden(validadorCompras $request)
+    public function metodoguardarOrden(Request $req)
     {
-        
+        $req->validate([
+            'Empresa'=>'required|alpha',
+            'DireccionEmpresa'=>'required|alpha',
+            'Dirrecion'=>'required',
+            'Condado'=>'required',
+            'Codigopostal'=>'required|numeric|min:4',
+            'Telefono'=>'required|numeric|min:10',
+            'Empresa1'=>'required|alpha',
+            'DireccionEmpresa1'=>'required|alpha',
+            'Dirrecion1'=>'required',
+            'Condado1'=>'required',
+            'Codigopostal1'=>'required|numeric|min:4',
+            'Telefono1'=>'required|numeric|min:10'
+        ]);
+
         return redirect('/comprasCrearOrden')->with('success', 'Sus cambios fueron guardados');
+    }
+    public function metodoguardarVenta(Request $request)
+    {
+        $request->validate([
+            'NombreCiente' => 'required|alpha',
+            'ApellidoPaterno'=>'required|alpha',
+            'ApellidoMaterno'=>'required|alpha',
+            'NombreProducto'=>'required|alpha',
+            'Marca5'=>'required',
+            'Cantidad5'=>'required|numeric',
+            'Precio5'=>'required|numeric'
+        ]);
+
+        return redirect('/ventaStock')->with('success', 'Sus cambios fueron guardados');
+    }
+    public function metodoguardareditarPreveedor(Request $request)
+    {
+        $request->validate([
+            'NombreEmpresa' => 'required|alpha',
+            'Marca3'=>'required|alpha',
+            'Direccion3'=>'required',
+            'Direccion4'=>'required',
+            'CodigoPostal1'=>'required|numeric|min:4',
+            'telefono3'=>'required|numeric|min:10',
+            'correo2'=>'required|email'
+        ]);
+
+        return redirect('/proveedoresEditar')->with('success', 'Sus cambios fueron guardados');
+    }
+    public function metodocrearProveedorNP(Request $req)
+    {
+        $req->validate([
+            'NombreNP' => 'required|alpha',
+            'apellidoPaternoNP'=>'required|alpha',
+            'apellidoMaternoNP'=>'required|alpha',
+            'nombreEmpresaNP'=>'required|alpha',
+            'marcaNP'=>'required|alpha',
+            'direccionNP'=>'required',
+            'direccion2NP'=>'required',
+            'codigoPostalNP'=>'required|numeric|min:4',
+            'telefonoNP'=>'required|numeric|min:10',
+            'correoNP'=>'required|email'
+        ]);
+
+
+        return redirect('/crearProveedor')->with('success', 'Proveedor registrado con exito');
+
+    }
+    
+    public function metodoguardargerenciaRegistro(Request $req)
+    {
+        $req->validate([
+            'Empresa2' => 'required|alpha',
+            'Nombre2'=>'required|alpha',
+            'app'=>'required|alpha',
+            'apm'=>'required|alpha',
+            'correo3'=>'required|alpha',
+            'area2'=>'required',
+            'Puesto2'=>'required',
+            'Contraseña2'=>'required|numeric|min:4',
+            'Contraseña3'=>'required|numeric|min:10'
+        ]);
+
+
+        return redirect('/gerenciaRegistro')->with('success', 'Proveedor registrado con exito');
+
     }
 }

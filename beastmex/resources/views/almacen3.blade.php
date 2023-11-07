@@ -1,18 +1,18 @@
 @extends('layouts.plantilla')
 @section('titulo', 'almaceneditar')
 @section('almaceneditar')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">  
     <h1 class="display-1 text-shadow text-center p-5">Editar</h1>
     
     <!-- Container de Registro Formulario gerencia -->
     <div class="card shadow container py-5 p-5">
         <script>
-            @if(session()->has('confirmacion'))
+            @if(session()->has('success'))
                 Swal.fire({
                 icon: 'success',
                 title: '¡Formulario completado!',
-                text: '{{ session('confirmacion') }}',
+                text: '{{ session('success') }}',
                 });
             @endif
         </script>
@@ -77,16 +77,5 @@
             </div>
         </form>
     </div> 
-    {{-- <footer class="footer text-center">
-        <div class="container">
-            <div class="col text-center">
-                <div class="col-sm-12 col-md-5">
-                    <p class="text-center">Copyright © 2023 All rights reserved by: beastmex</p>
-                </div>
-                <div class="col-sm-12 col-md-5">
-                    <p class="text-center  site-footer"> Hoy es: {{ $now->format('d-m-Y') }}</p>
-                </div>
-            </div>
-        </div>
-    </footer> --}}
+    
 @endsection

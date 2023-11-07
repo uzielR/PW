@@ -4,10 +4,10 @@
       <p>BEASTMEX</p>
     </div>
     <div class="copyright">
-      <p>&copy; 2023 Graciela Álvarez González</p>
+      <p>&copy; 2023 BEASTEMEX</p>
     </div>
     <div class="fecha">
-      <p>Fecha: <span id="fechaActual">27 de Octubre del 2023</span></p>
+      <p>Fecha: <span id="fechaActual">06 de Noviembre del 2023</span></p>
     </div>
   </div>
 </footer>

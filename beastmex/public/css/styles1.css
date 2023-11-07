@@ -63,6 +63,11 @@ main {
 body.crearOrden .navbar-brand {
     display: none;
 }
+.imagenventas{
+    width:800px;
+    position: relative;
+    left: 350px;
+}
 
 
 

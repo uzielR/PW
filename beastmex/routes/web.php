@@ -53,7 +53,9 @@ use App\Http\Controllers\ProductoController;
     Route::get('/gerenciaReporte', 'consultarReportes')->name('apodoReporte');
     Route::get('/usuarios', 'listarUsuarios')->name('apodoUsuarios');
 
-    
+    Route::get('/ventasGrafica', 'metodoventasGrafica')->name('apodoventasGrafica');
+    Route::get('/comprasGrafica', 'metodocomprasGrafica')->name('apodocomprasGrafica');
+    Route::get('/gananciasGrafica', 'metodogananciasGrafica')->name('apodogananciasGrafica');
     
     /* SESION METODO POST */
     Route::post('/login','metodologin')->name('apodologin');
@@ -62,6 +64,10 @@ use App\Http\Controllers\ProductoController;
     /*GUARDAR REGISTRO */
     Route::post('/guardarRegistro','metodoguardarRegistro')->name('apodoguardarRegistro');
     Route::post('/guardarOrden','metodoguardarOrden')->name('apodoguardarOrden');
-    
+    Route::post('/guardarVenta','metodoguardarVenta')->name('apodoguardarVenta');
+    Route::post('/guardareditarPreveedor','metodoguardareditarPreveedor')->name('apodoguardareditarPreveedor');
+    Route::post('/crearProveedorNP','metodocrearProveedorNP')->name('apodocrearProveedorNP');
     Route::resource('Productos', ProductoController::class);
+    Route::post('/guardargerenciaRegistro','metodoguardargerenciaRegistro')->name('apodoguardargerenciaRegistro');
+    Route::get('/proveedoresProductos', 'metodoproveedoresProductos')->name('apodoproveedoresProductos');
 });
