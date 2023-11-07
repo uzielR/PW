@@ -21,9 +21,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/ventas">VENTAS</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/gerenciaRegistro">GERENCIA</a>
                 </li>
+
 
             </ul>
         </div>
