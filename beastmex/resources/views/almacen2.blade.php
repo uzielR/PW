@@ -50,7 +50,7 @@
                     <div class="col-md">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Fecha de Ingreso:</label>
-                            <input type="text" value="{{ old('Fecha_ingreso', $fecha) }}" name="Fecha_ingreso" class="form-control" id="recipient-name">
+                            <input type="date" value="{{ old('Fecha_ingreso') }}" name="Fecha_ingreso" class="form-control" id="recipient-name" placeholder="Ingrese fecha llegada al almacén" >
                             <p class="text-primary">{{$errors->first('Fecha_ingreso')}}</p>
                         </div>
                     </div>

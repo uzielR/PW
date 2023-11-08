@@ -52,7 +52,7 @@ use App\Http\Controllers\ProductoController;
     Route::get('/gerenciaRegistro', 'metodoGerencia')->name('apodoGerencia');
     Route::get('/gerenciaReporte', 'consultarReportes')->name('apodoReporte');
     Route::get('/usuarios', 'listarUsuarios')->name('apodoUsuarios');
-
+    Route::get('/usuariosEditar', 'metodoEditarUsuarios')->name('apodoEditarUsuarios');
     
     
     /* SESION METODO POST */

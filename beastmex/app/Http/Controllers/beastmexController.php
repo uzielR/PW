@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\validadorBeastmex;
 use App\Http\Requests\validadorCompras;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
+
 class beastmexController extends Controller
 {
     //
@@ -13,18 +14,17 @@ class beastmexController extends Controller
         return view('login');
     }
     public function metodoalmacen(){
-        
-        return view('almacen');
+        $now = now();
+        return view('almacen', ['now' => $now]);
     }
     public function metodoalmacen2(){
-        $fecha = Carbon::now()->format('d-m-Y');
-
-        return view('almacen2', ['fecha' => $fecha]);
+        $now = now();
+        return view('almacen2', ['now' => $now]);
 
     }
-    public function metodocompras(){
-        
-        return view('compras');
+    public function metodocompras(){        
+        $now = now();  
+        return view('compras', ['now' => $now]);
     }
     
     public function metodogerencia(){
@@ -33,8 +33,8 @@ class beastmexController extends Controller
     }
 
     public function metodoalmacen3() {
-        $fecha = Carbon::now()->format('d-m-Y');
-        return view('almacen3', ['fecha' => $fecha]);
+        $now = now();
+        return view('almacen3', ['now' => $now]);
     }
     
     public function consultarReportes(){
@@ -43,35 +43,36 @@ class beastmexController extends Controller
     }
     
     public function metodoventas(){
-        
-        return view('ventas');
+        $now = now();       
+        return view('ventas', ['now' => $now]);
     }
     public function metodoproveedores(){
-        return view('proveedores');
+        $now = now();           
+        return view('proveedores', ['now' => $now]);
     }
     public function metodoeditarproveedores(){
-        
-        return view('proveedoresEditar');
+        $now = now();  
+        return view('proveedoresEditar', ['now' => $now]);
     }
     public function metodocrearOrden(){
-        
-        return view('comprasCrearOrden');
+        $now = now(); 
+        return view('comprasCrearOrden', ['now' => $now]);
     }
     
     public function metodoVerOrden(){
-        
-        return view('comprasVerOrden');
+        $now = now(); 
+        return view('comprasVerOrden', ['now' => $now]);
     }
 
     public function metodocrearProveedor(){
-        
-        return view('crearProveedor');
+        $now = now(); 
+        return view('crearProveedor', ['now' => $now]);
     }
     
     
     public function metodoventaStock(){
-        
-        return view('ventaStock');
+        $now = now();  
+        return view('ventaStock', ['now' => $now]);
     }
 
     
@@ -90,8 +91,7 @@ class beastmexController extends Controller
 
     public function metodoeditaralmacen(validadorBeastmex $req)
     {
-        $fecha = Carbon::now()->format('d-m-Y');
-        return redirect('/almacen3')->with('confirmacion', 'Sus cambios fueron guardados con éxito')->with('fecha', $fecha);
+        return redirect('/almacen3')->with('confirmacion', 'Sus cambios fueron guardados con éxito');
     }
 
     public function metodoguardarRegistro(Request $request)
@@ -100,13 +100,11 @@ class beastmexController extends Controller
             'Nombre_Producto' => 'required|alpha',
             'Nombre_Marca'=>'required|alpha',
             'Costo_Producto'=>'required|numeric',
+            'Fecha_ingreso'=>'required|date',
             'Precio_Venta'=>'required|numeric',
             'Foto2'=>'required'
         ]);
-
-        $fecha = Carbon::now()->format('d-m-Y');
-
-        return redirect('/almacen2')->with('success', 'Sus cambios fueron guardados')->with('fecha', $fecha);
+        return redirect('/almacen2')->with('success', 'Sus cambios fueron guardados');
     }
 
 
@@ -117,7 +115,27 @@ class beastmexController extends Controller
 
     public function metodoguardarOrden(validadorCompras $request)
     {
-        
         return redirect('/comprasCrearOrden')->with('success', 'Sus cambios fueron guardados');
+    }
+
+    public function metodoEditarUsuarios(){
+        $now = now();
+        return view('/usuariosEditar', ['now' => $now])->with('success', 'Sus cambios fueron guardados');
+    }
+    public function metodogerenciaEditarUsuario(Request $req)
+    {
+        $req->validate([
+            'Em' => 'required|alpha',
+            'No'=>'required|alpha',
+            'Ap'=>'required|alpha',
+            'Am'=>'required|alpha',
+            'em'=>'required|email',
+            'ar'=>'required|alpha',
+            'pu'=>'required|alpha',
+            'co'=>'required|alpha',
+            'vc'=>'required|alpha'
+        ]);
+
+        return redirect('/gerenciaRegistroR')->with('success', 'Proveedor registrado con exito');
     }
 }

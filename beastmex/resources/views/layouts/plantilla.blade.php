@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    
-    @if(!Request::is('almacen3','proveedoresEditar','crearProveedor','comprasCrearOrden','comprasVerOrden','ventaStock','usuarios','gerenciaReporte')) <!-- Comprueba que no sea la página 'almaceneditar' -->
-    
-        @include('partials.navb')
+    <header>
+        @if(!Request::is('almacen3','proveedoresEditar','crearProveedor','comprasCrearOrden','comprasVerOrden','ventaStock','usuarios','gerenciaReporte')) <!-- Comprueba que no sea la página 'almaceneditar' -->
+        
+            @include('partials.navb')
 
-    @endif
-
+        @endif
+    </header>
     <main>
         @yield('compras')
         @yield('almacen')
@@ -28,14 +28,15 @@
         @yield('ordernes')
         @yield('reportes')
         @yield('usuarios')
+        @yield('gerenciaEditarUsuario')
 
         <div class="contenidoGerencia">
             @yield('gerenciaRegistro')
         <div>
     </main>
 
-    <footer class="footer">
-        @component('partials.footer')
+    <footer class="footerDos">
+        @component('partials.footerDos', ['now' => $now])
         @endcomponent
     </footer>
 </body>

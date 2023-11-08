@@ -7,7 +7,7 @@ body{
     color: white;
     background-image: url(imagenes/fondo\ \(2\).png);
     /* background-color: rgb(174, 179, 184); */
-    background-size:100% 100%;;/* Imagen al tamaño de la pantalla*/
+    background-size:cover;/* Imagen al tamaño de la pantalla*/
     background-repeat: no-repeat;/* Para que no se repita la imagen de fondo */
     
 }
@@ -46,7 +46,7 @@ input{
 }
 
 footer {
-    background-color: #000000;
+/*     background-color: #000000; */
     color: #7498b6;
 }
 /* Aplica un margen superior al contenido principal para separarlo del footer */
