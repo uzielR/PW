@@ -10,7 +10,7 @@
   <div class=" card container text-center mb-2 p-4">
     <form method="POST" action="{{ route('apodologin') }}" class="row">
       @csrf 
-      <h1 class="text-center mb-4">LOGIN</h1>
+      <h1 class="text-center mb-4">LOgggGIN</h1>
       <div class="text-black mb-4">
         <label for="validationDefault01" class="form-label font-weight-bold p-2">Correo Electronico:</label>
         <input name="Correo" type="text" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp"
