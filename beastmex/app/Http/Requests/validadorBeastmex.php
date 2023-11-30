@@ -23,11 +23,11 @@ class validadorBeastmex extends FormRequest
     {
         return [
             //
-            'NombreProducto' => 'required|alpha',
-            'Marca'=>'required|alpha',
-            'Cantidad'=>'required|numeric',
+            'NombreProducto' =>'required|alpha',
+            'NombreMarca'=>'required|alpha',
             'CostoProducto'=>'required|numeric',
-            'Foto'=>'required'
+            'PrecioVenta'=>'required|numeric',
+            /* 'Foto2'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048', */
             
             
         ];

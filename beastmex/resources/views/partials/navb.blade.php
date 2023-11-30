@@ -10,7 +10,7 @@
                     <a class="nav-link" href="/almacen">INVENTARIO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/almacen2">REGISTRO PRODUCTOS</a>
+                    <a class="nav-link {{request()->routeIs('almacen2.create')?'text-primary':''}}" href="/almacen2">REGISTRO PRODUCTOS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/compras">COMPRAS</a>

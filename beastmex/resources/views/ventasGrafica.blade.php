@@ -80,8 +80,52 @@
         </div>
         </div>
         <h1 class="display-1 text-center p-4"> Graficas </h1>
-        <img class="imagenventas" style="size: 400%" src="https://tudashboard.com/wp-content/uploads/2019/06/ventas-por-representante.jpg"
-          alt="">
+        <svg width="400" height="250" id="grafico"></svg>
+
+        <script>
+          // Datos para el gráfico
+          const datos = [
+            { mes: 'Enero', ventas: 12 },
+            { mes: 'Febrero', ventas: 19 },
+            { mes: 'Marzo', ventas: 3 },
+            { mes: 'Abril', ventas: 5 },
+            { mes: 'Mayo', ventas: 2 }
+          ];
+
+          const svg = document.getElementById('grafico');
+
+          // Definir dimensiones y escalas
+          const width = 400;
+          const height = 200;
+          const barWidth = width / datos.length;
+          const maxValue = Math.max(...datos.map(d => d.ventas));
+          const scaleY = height / maxValue;
+
+          // Dibujar barras
+          datos.forEach((dato, index) => {
+            const barHeight = dato.ventas * scaleY;
+            const x = index * barWidth;
+            const y = height - barHeight;
+
+            const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            rect.setAttribute('x', x);
+            rect.setAttribute('y', y);
+            rect.setAttribute('width', barWidth - 2); // Espacio entre barras
+            rect.setAttribute('height', barHeight);
+            rect.setAttribute('fill', 'blue'); // Color de las barras
+
+            svg.appendChild(rect);
+
+            // Etiquetas en el eje X
+            const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            label.setAttribute('x', x + barWidth / 2);
+            label.setAttribute('y', height + 15);
+            label.setAttribute('text-anchor', 'middle');
+            label.textContent = dato.mes;
+
+            svg.appendChild(label);
+          });
+        </script>
       </div>
 
 

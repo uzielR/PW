@@ -1,4 +1,4 @@
-@extends('layouts.plantilla')
+{{-- @extends('layouts.plantilla')
 @section('titulo', 'almaceneditar')
 @section('almaceneditar')
     
@@ -6,13 +6,13 @@
     <h1 class="display-1 text-shadow text-center p-5">Editar</h1>
     
     <!-- Container de Registro Formulario gerencia -->
-    <div class="card shadow container py-5 p-5">
+    <div class="card shadow container py-5 p-5 ">
         <script>
-            @if(session()->has('success'))
+            @if(session()->has('confirmacion'))
                 Swal.fire({
                 icon: 'success',
                 title: '¡Formulario completado!',
-                text: '{{ session('success') }}',
+                text: '{{ session('confirmacion') }}',
                 });
             @endif
         </script>
@@ -79,3 +79,4 @@
     </div> 
     
 @endsection
+ --}}

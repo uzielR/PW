@@ -38,10 +38,14 @@ return [
 
         'public' => [
             'driver' => 'local',
+            'root' => public_path('imagenes2'), // Ruta hacia la carpeta public/imagenes2
+            'url' => env('APP_URL').'/imagenes2', // URL para acceder a los archivos
+            'visibility' => 'public',
+            /* 'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
-            'throw' => false,
+            'throw' => false, */
         ],
 
         's3' => [

@@ -13,36 +13,36 @@
     <div class="container">
         <div class="card container p-4">
             <script>
-                @if(session('success'))
+                @if(session('confirmacion'))
                     Swal.fire({
                         icon: 'success',
                         title: '¡Éxito!',
-                        text: '{{ session('success') }}',
+                        text: '{{ session('confirmacion') }}',
                     });
                 @endif
             </script>
-            <form method="POST" action="/guardarRegistro">
+            <form method="POST" action="/GuardarProductos" enctype="multipart/form-data" >
                 @csrf
                 <div class="row g-2">
                     <div class="col-md">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Nombre del Producto:</label>
-                            <input type="text" value="{{old('Nombre_Producto')}}" name="Nombre_Producto" class="form-control" id="recipient-name" placeholder="Ingrese el Nombre del Producto">
-                            <p class="text-primary">{{$errors->first('Nombre_Producto')}}</p>
+                            <input type="text" value="{{old('NombreProducto')}}" name="NombreProducto" class="form-control" id="recipient-name" placeholder="Ingrese el Nombre del Producto">
+                            <p class="text-primary">{{$errors->first('NombreProducto')}}</p>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Nombre de la Marca:</label>
-                            <input type="text" value="{{old('Nombre_Marca')}}" name="Nombre_Marca" class="form-control" id="recipient-name" placeholder="Ingrese el Nombre de la Marca">
-                            <p class="text-primary">{{$errors->first('Nombre_Marca')}}</p>
+                            <input type="text" value="{{old('NombreMarca')}}" name="NombreMarca" class="form-control" id="recipient-name" placeholder="Ingrese el Nombre de la Marca">
+                            <p class="text-primary">{{$errors->first('NombreMarca')}}</p>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Costo del Producto:</label>
-                            <input type="text" value="{{old('Costo_Producto')}}" name="Costo_Producto" class="form-control" id="recipient-name" placeholder="Ingrese el Costo del Producto" >
-                            <p class="text-primary">{{$errors->first('Costo_Producto')}}</p>
+                            <input type="text" value="{{old('CostoProducto')}}" name="CostoProducto" class="form-control" id="recipient-name" placeholder="Ingrese el Costo del Producto" >
+                            <p class="text-primary">{{$errors->first('CostoProducto')}}</p>
                         </div>
                     </div>
                 </div>
@@ -50,22 +50,22 @@
                     <div class="col-md">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Fecha de Ingreso:</label>
-                            <input type="text" value="{{ old('Fecha_ingreso', $fecha) }}" name="Fecha_ingreso" class="form-control" id="recipient-name">
-                            <p class="text-primary">{{$errors->first('Fecha_ingreso')}}</p>
+                            <input type="text" value="{{ old('Fechaingreso') }}" name="Fechaingreso" class="form-control" id="recipient-name" placeholder="Ingrese la Fecha">
+                            <p class="text-primary">{{$errors->first('Fechaingreso')}}</p>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Precio Venta:</label>
-                            <input type="text" value="{{old('Precio_Venta')}}" name="Precio_Venta" class="form-control" id="recipient-name" placeholder="Ingrese el Precio Venta del Producto">
-                            <p class="text-primary">{{$errors->first('Precio_Venta')}}</p>
+                            <input type="text" value="{{old('PrecioVenta')}}" name="PrecioVenta" class="form-control" id="recipient-name" placeholder="Ingrese el Precio Venta del Producto">
+                            <p class="text-primary">{{$errors->first('PrecioVenta')}}</p>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Foto:</label>
-                            <input type="file" value="{{old('Foto2')}}" name="Foto2" class="form-control" id="recipient-name">
-                            <p class="text-primary">{{$errors->first('Foto2')}}</p>
+                            <label for="Foto2"class="col-form-label">Selecciona una imagen:</label>
+                            <input type="file" value="{{old('ImagenProducto')}}" name="ImagenProducto" id="ImagenProducto"class="form-control" accept="image/*" required>
+                            <p class="text-primary">{{$errors->first('ImagenProducto')}}</p>
                         </div>
                     </div>
                     <div class="d-grid gap-5">

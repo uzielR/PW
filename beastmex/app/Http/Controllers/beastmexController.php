@@ -84,7 +84,7 @@ class beastmexController extends Controller
         ]);
     
         // Si la validación es exitosa se redirige al usuario a la página de almacen.
-        return redirect()->route('apodoalmacen');
+        return redirect ()->route('almacen.index');
     }
     public function metodoproveedoresProductos(){
         
@@ -115,14 +115,7 @@ class beastmexController extends Controller
 
     public function metodoguardarRegistro(Request $request)
     {
-        $request->validate([
-            'Nombre_Producto' => 'required|alpha',
-            'Nombre_Marca'=>'required|alpha',
-            'Costo_Producto'=>'required|numeric',
-            'Precio_Venta'=>'required|numeric',
-            'Foto2'=>'required'
-        ]);
-
+        
         $fecha = Carbon::now()->format('d-m-Y');
 
         return redirect('/almacen2')->with('success', 'Sus cambios fueron guardados')->with('fecha', $fecha);

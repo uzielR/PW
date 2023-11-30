@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ControllerAlmacen;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,9 +35,9 @@ use App\Http\Controllers\ProductoController;
     /* LOGIN */
     Route::get('/','metodoInicio')->name('apodoInicio');
     /* ALMACEN */
-    Route::get('/almacen', 'metodoalmacen')->name('apodoalmacen');
-    Route::get('/almacen3', 'metodoalmacen3')->name('apodoalmacen3');
-    Route::get('/almacen2', 'metodoalmacen2')->name('apodoalmacen2');
+    /* Route::get('/almacen', 'metodoalmacen')->name('apodoalmacen'); */
+    /* Route::get('/almacen3', 'metodoalmacen3')->name('apodoalmacen3'); */
+    /* Route::get('/almacen2', 'metodoalmacen2')->name('apodoalmacen2'); */
     /* COMPRAS */
     Route::get('/compras', 'metodocompras')->name('apodocompras');
     Route::get('/proveedores', 'metodoproveedores')->name('apodoproveedores');
@@ -60,9 +60,9 @@ use App\Http\Controllers\ProductoController;
     /* SESION METODO POST */
     Route::post('/login','metodologin')->name('apodologin');
     /*GUARDAR ALMCAEN */
-    Route::post('/editaralmacen','metodoeditaralmacen')->name('apodoeditaralmacen');
+    /* Route::post('/editaralmacen','metodoeditaralmacen')->name('apodoeditaralmacen'); */
     /*GUARDAR REGISTRO */
-    Route::post('/guardarRegistro','metodoguardarRegistro')->name('apodoguardarRegistro');
+    /* Route::post('/guardarRegistro','metodoguardarRegistro')->name('apodoguardarRegistro'); */
     Route::post('/guardarOrden','metodoguardarOrden')->name('apodoguardarOrden');
     Route::post('/guardarVenta','metodoguardarVenta')->name('apodoguardarVenta');
     Route::post('/guardareditarPreveedor','metodoguardareditarPreveedor')->name('apodoguardareditarPreveedor');
@@ -70,4 +70,13 @@ use App\Http\Controllers\ProductoController;
     Route::resource('Productos', ProductoController::class);
     Route::post('/guardargerenciaRegistro','metodoguardargerenciaRegistro')->name('apodoguardargerenciaRegistro');
     Route::get('/proveedoresProductos', 'metodoproveedoresProductos')->name('apodoproveedoresProductos');
+
+    #NUVAS RUTAS CON EL NUEVO CONTROLADOR
+    #ALMACEN--------------------------------------------------------------------------------------------------
+   /*  Route::get('/almacen', [ControllerAlmacen::class,'create'])->name('almacen.create'); */
+    Route::get('/almacen', [ControllerAlmacen::class,'index'])->name('almacen.index');
+    Route::get('/almacen2', [ControllerAlmacen::class,'create'])->name('almacen2.create');
+    Route::post('/GuardarProductos',[ControllerAlmacen::class,'store'])->name('recuerdo.store');
+    Route::put('EditarProductos/{id}/confirm',[ControllerAlmacen::class,'update'])->name('editarProducto.update');
+    #FIN DE RUTAS DE ALMACEN----------------------------------------------------------------------------------
 });
