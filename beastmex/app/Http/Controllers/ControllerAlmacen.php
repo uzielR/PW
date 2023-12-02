@@ -14,7 +14,7 @@ class ControllerAlmacen extends Controller
     public function index()
     {
         //
-        $consR=DB::table('_productos')->get();/* consulta */
+        $consR=DB::table('tb_productos')->get();/* consulta */
         return view('almacen',compact('consR')); 
     }
 
@@ -43,7 +43,7 @@ class ControllerAlmacen extends Controller
         }
         
 
-        DB::table('_productos')->insert([
+        DB::table('tb_productos')->insert([
             'NombreProducto' => $request->input('NombreProducto'),
             'NombreMarca' => $request->input('NombreMarca'),
             'CostoProducto' => $request->input('CostoProducto'),
@@ -84,7 +84,7 @@ class ControllerAlmacen extends Controller
             $rutaImagen = null;
         }
         
-        DB::table('_productos')->where('id',$id)->update([
+        DB::table('tb_productos')->where('id',$id)->update([
             'NombreProducto' => $request->input('NombreProducto'),
             'NombreMarca' => $request->input('NombreMarca'),
             'CostoProducto' => $request->input('CostoProducto'),
@@ -92,6 +92,7 @@ class ControllerAlmacen extends Controller
             'PrecioVenta' => $request->input('PrecioVenta'),
             "updated_at"=>Carbon::now(),
             'ImagenProducto' => $rutaImagen, // Guardar la ruta de la imagen en la base de datos
+            
         ]);
         return redirect('/almacen')->with('confirmacion', 'Tu recuerdo llegó al controlador');
     }

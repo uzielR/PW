@@ -64,7 +64,7 @@
                     <div class="col-md">
                         <div class="mb-3">
                             <label for="Foto2"class="col-form-label">Selecciona una imagen:</label>
-                            <input type="file" value="{{old('ImagenProducto')}}" name="ImagenProducto" id="ImagenProducto"class="form-control" accept="image/*" required>
+                            <input type="file" value="{{old('ImagenProducto')}}" name="ImagenProducto" id="ImagenProducto"class="form-control" accept="image/*">
                             <p class="text-primary">{{$errors->first('ImagenProducto')}}</p>
                         </div>
                     </div>

@@ -47,7 +47,7 @@ class beastmexController extends Controller
         return view('ventas');
     }
     public function metodoproveedores(){
-        return view('proveedores');
+        return redirect ()->route('proveedor.index');
     }
     public function metodoeditarproveedores(){
         
@@ -85,7 +85,7 @@ class beastmexController extends Controller
     
         // Si la validación es exitosa se redirige al usuario a la página de almacen.
         return redirect ()->route('almacen.index');
-    }
+    }   
     public function metodoproveedoresProductos(){
         
         return view('proveedoresProductos');

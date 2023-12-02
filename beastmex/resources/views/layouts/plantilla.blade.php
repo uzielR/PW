@@ -11,7 +11,7 @@
 
 <body>
     
-    @if(!Request::is('almacen3','proveedoresEditar','crearProveedor','comprasCrearOrden','comprasVerOrden','ventaStock','usuarios','gerenciaReporte','proveedoresProductos','ventasGrafica','comprasGrafica','gananciasGrafica')) <!-- Comprueba que no sea la página 'almaceneditar' -->
+    @if(!Request::is('almacen3','proveedoresEditar','proveedores/create','comprasCrearOrden','comprasVerOrden','ventaStock','usuarios','gerenciaReporte','proveedoresProductos','ventasGrafica','comprasGrafica','gananciasGrafica')) <!-- Comprueba que no sea la página 'almaceneditar' -->
     
         @include('partials.navb')
 

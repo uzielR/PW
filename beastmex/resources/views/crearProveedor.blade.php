@@ -4,7 +4,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
     <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
-    
+
     <h1 class="display-3 text-center p-5">Nuevo proveedor</h1>
 
     <div class=" container p-3 ">
@@ -18,7 +18,8 @@
                     });
                 @endif
             </script>
-            <form method="POST" action="/crearProveedorNP">
+            <form method="POST" action="{{ route('proveedores.store') }}">
+
                 @csrf
                 <div class="card-body">
 
@@ -114,9 +115,9 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="p-4 gap-1">
                         <button class="btn btn-primary" type="submit"><i class="bi bi-person-add"></i> Registrar proveedor</button>
-
                         <a href="/proveedores" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-arrow-return-left" viewBox="0 0 16 16">

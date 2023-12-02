@@ -27,7 +27,7 @@ Route::get('/compras', function () {
     return view('compras');
 });
  */
-
+use App\Http\Controllers\proveedoresCrud;
 use App\Http\Controllers\beastmexController;// instruccion que se necesita para hacer el controlador 
 use App\Http\Controllers\ProductoController;
 
@@ -40,11 +40,11 @@ use App\Http\Controllers\ProductoController;
     /* Route::get('/almacen2', 'metodoalmacen2')->name('apodoalmacen2'); */
     /* COMPRAS */
     Route::get('/compras', 'metodocompras')->name('apodocompras');
-    Route::get('/proveedores', 'metodoproveedores')->name('apodoproveedores');
-    Route::get('/proveedoresEditar', 'metodoeditarproveedores')->name('apodoeditarproveedores');
     Route::match(['get', 'post'], '/comprasCrearOrden', 'metodocrearOrden')->name('apodocrearOrden');
     Route::get('/comprasVerOrden', 'metodoVerOrden')->name('apodoVerOrden');
-    Route::get('/crearProveedor', 'metodocrearProveedor')->name('apodocrearProveedor');
+    /* Route::get('/proveedores', 'metodoproveedores')->name('apodoproveedores'); */
+    /* Route::get('/proveedoresEditar', 'metodoeditarproveedores')->name('apodoeditarproveedores'); */
+    /* Route::get('/crearProveedor', 'metodocrearProveedor')->name('apodocrearProveedor'); */ 
     /* VENTAS */
     Route::get('/ventas', 'metodoventas')->name('apodoventas');
     Route::get('/ventaStock', 'metodoventaStock')->name('apodoventaStock');
@@ -76,7 +76,18 @@ use App\Http\Controllers\ProductoController;
    /*  Route::get('/almacen', [ControllerAlmacen::class,'create'])->name('almacen.create'); */
     Route::get('/almacen', [ControllerAlmacen::class,'index'])->name('almacen.index');
     Route::get('/almacen2', [ControllerAlmacen::class,'create'])->name('almacen2.create');
-    Route::post('/GuardarProductos',[ControllerAlmacen::class,'store'])->name('recuerdo.store');
+    Route::post('/GuardarProductos',[ControllerAlmacen::class,'store'])->name('GuardarProductos.store');
     Route::put('EditarProductos/{id}/confirm',[ControllerAlmacen::class,'update'])->name('editarProducto.update');
     #FIN DE RUTAS DE ALMACEN----------------------------------------------------------------------------------
+    #NUEVAS RUTAS DE PROVEEDORES-------------------------------------------------------------------------------
+    //levar solo a la ruta
+    Route::get('/proveedores', [proveedoresCrud::class,'index'])->name('proveedor.index');
+
+    //levar solo a crear proveedor
+    Route::get('/proveedores/create', [proveedoresCrud::class,'create'])->name('recuerdo.create');
+    Route::post('/proveedores/store',[proveedoresCrud::class,'store'])->name('proveedores.store');
+
+    //modificar y borrar
+    Route::put('/EditarProveedores/{id}/confirm',[proveedoresCrud::class,'update'])->name('proveedor.update');
+
 });

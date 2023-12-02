@@ -24,8 +24,8 @@
                     <div class="col-md">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Nombre del Cliente:</label>
-                            <input type="text" name="NombreCiente" value="{{old('NombreCiente')}}" class="form-control" id="recipient-name" placeholder="Ingrese el Nombre del Cliente">
-                            <p class="text-primary">{{$errors->first('NombreCiente')}}</p>
+                            <input type="text" name="NombreCliente" value="{{old('NombreCliente')}}" class="form-control" id="recipient-name" placeholder="Ingrese el Nombre del Cliente">
+                            <p class="text-primary">{{$errors->first('NombreCliente')}}</p>
                         </div>
                     </div>
                     <div class="col-md">
