@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\validadorBeastmex;
-use App\Http\Requests\validadorCompras;
+
 use Carbon\Carbon;
 class beastmexController extends Controller
 {
@@ -44,7 +44,7 @@ class beastmexController extends Controller
     
     public function metodoventas(){
         
-        return view('ventas');
+        return redirect ()->route('ventas.index');
     }
     public function metodoproveedores(){
         return redirect ()->route('proveedor.index');

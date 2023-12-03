@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\ControllerVentas;
 use App\Http\Controllers\ControllerAlmacen;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::get('/compras', function () {
     return view('compras');
 });
  */
+
 use App\Http\Controllers\proveedoresCrud;
 use App\Http\Controllers\beastmexController;// instruccion que se necesita para hacer el controlador 
 use App\Http\Controllers\ProductoController;
@@ -47,7 +49,7 @@ use App\Http\Controllers\ProductoController;
     /* Route::get('/crearProveedor', 'metodocrearProveedor')->name('apodocrearProveedor'); */ 
     /* VENTAS */
     Route::get('/ventas', 'metodoventas')->name('apodoventas');
-    Route::get('/ventaStock', 'metodoventaStock')->name('apodoventaStock');
+    /* Route::get('/ventaStock', 'metodoventaStock')->name('apodoventaStock'); */
     /* GERENCIA */
     Route::get('/gerenciaRegistro', 'metodoGerencia')->name('apodoGerencia');
     Route::get('/gerenciaReporte', 'consultarReportes')->name('apodoReporte');
@@ -78,6 +80,9 @@ use App\Http\Controllers\ProductoController;
     Route::get('/almacen2', [ControllerAlmacen::class,'create'])->name('almacen2.create');
     Route::post('/GuardarProductos',[ControllerAlmacen::class,'store'])->name('GuardarProductos.store');
     Route::put('EditarProductos/{id}/confirm',[ControllerAlmacen::class,'update'])->name('editarProducto.update');
+    Route::delete('/almacen/{id}', [ControllerAlmacen::class, 'destroy'])->name('almacen.destroy');
+    
+
     #FIN DE RUTAS DE ALMACEN----------------------------------------------------------------------------------
     #NUEVAS RUTAS DE PROVEEDORES-------------------------------------------------------------------------------
     //levar solo a la ruta
@@ -89,5 +94,10 @@ use App\Http\Controllers\ProductoController;
 
     //modificar y borrar
     Route::put('/EditarProveedores/{id}/confirm',[proveedoresCrud::class,'update'])->name('proveedor.update');
-
+    #Rutas Ventas---------------------------------------------------------------------------------------------
+    Route::get('/ventas', [ControllerVentas::class,'index'])->name('ventas.index');
+    Route::get('ventas/pdf/{id}', [ControllerVentas::class, 'pdf'])->name('ventas.pdf');
+    Route::get('/ventaStock', [ControllerVentas::class,'create'])->name('ventas.create');
+    Route::post('/GuardarVenta',[ControllerVentas::class,'store'])->name('guardarventa.store');
+    Route::put('EditarVentas/{id}/confirm',[ControllerVentas::class,'update'])->name('editarventas.update');
 });

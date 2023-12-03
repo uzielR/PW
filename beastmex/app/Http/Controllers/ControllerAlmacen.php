@@ -14,7 +14,9 @@ class ControllerAlmacen extends Controller
     public function index()
     {
         //
-        $consR=DB::table('tb_productos')->get();/* consulta */
+        $consR = DB::table('tb_productos')
+                ->where('estatus', 1) // Filtrar por estatus igual a 1
+                ->get();
         return view('almacen',compact('consR')); 
     }
 
@@ -85,16 +87,16 @@ class ControllerAlmacen extends Controller
         }
         
         DB::table('tb_productos')->where('id',$id)->update([
-            'NombreProducto' => $request->input('NombreProducto'),
-            'NombreMarca' => $request->input('NombreMarca'),
-            'CostoProducto' => $request->input('CostoProducto'),
-            'FechaIngreso' =>$request->input('FechaIngreso') ,
-            'PrecioVenta' => $request->input('PrecioVenta'),
+            'NombreProducto' => $request->input('NombreProductoPN'),
+            'NombreMarca' => $request->input('NombreMarcaNP'),
+            'CostoProducto' => $request->input('CostoProductoPN'),
+            'FechaIngreso' =>$request->input('FechaIngresoPN') ,
+            'PrecioVenta' => $request->input('PrecioVentaPN'),
             "updated_at"=>Carbon::now(),
             'ImagenProducto' => $rutaImagen, // Guardar la ruta de la imagen en la base de datos
             
         ]);
-        return redirect('/almacen')->with('confirmacion', 'Tu recuerdo llegó al controlador');
+        return redirect('/almacen')->with('confirmacion', 'Tu producto llegó al controlador');
     }
 
     /**
@@ -102,6 +104,10 @@ class ControllerAlmacen extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Cambiar el estatus a 0 para indicar que está inactivo (eliminado lógicamente)
+        DB::table('tb_productos')->where('id', $id)->update(['estatus' => 0]);
+
+        return redirect('/almacen')->with('confirmacion', 'Producto eliminado exitosamente');
     }
+
 }

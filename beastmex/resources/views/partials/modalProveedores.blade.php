@@ -11,32 +11,27 @@
                 <form method="POST" action="/EditarProveedores/{{$item->id}}/confirm">
                     @csrf 
                     {!! method_field('PUT') !!}
-            
-                                    
+           
 
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Nombre de la empresa:</label>
-                                <input type="text" name="nombreEmpresaNP" value="{{$item->nombreEmpresa}}" 
-                                    class="form-control" placeholder="Ingrese nombre de la mepresa" id="recipient-name">
+                                <input type="text" name="nombreEmpresaNP" value="{{$item->nombreEmpresa}}"class="form-control" placeholder="Ingrese nombre de la mepresa" id="recipient-name">
                                 <p class="text-primary">{{$errors->first('nombreEmpresaNP')}}</p>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Marca:</label>
-                                <input type="text" name="marcaNP" value="{{$item->marca}}" class="form-control"
-                                    placeholder="Marca proveedor" id="recipient-name">
+                                <input type="text" name="marcaNP" value="{{$item->marca}}" class="form-control" placeholder="Marca proveedor" id="recipient-name">
                                 <p class="text-primary">{{$errors->first('marcaNP')}}</p>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="mb-3 ">
                                 <label for="recipient-name" class="col-form-label">Direccion:</label>
-                                <input type="text" name="direccionNP" value="{{$item->direccion}}" class="form-control"
-                                    placeholder="Ingrese la Dirección de la Empresa"
-                                    id="recipient-name">
+                                <input type="text" name="direccionNP" value="{{$item->direccion}}" class="form-control" placeholder="Ingrese la Dirección de la Empresa" id="recipient-name">
                                 <p class="text-primary">{{$errors->first('direccionNP')}}</p>
                             </div>
                         </div>

@@ -7,17 +7,17 @@
 
     <div class="container p-5">
         
-        @if(session()->has('success'))
+        @if(session()->has('confirmacion'))
             <script>
                 Swal.fire({
                 icon: 'success',
                 title: '¡Formulario completado!',
-                text: '{{ session('success') }}',
+                text: '{{ session('confirmacion') }}',
                 });
             </script>
         @endif
        
-        <form method="POST" action="/guardarVenta">
+        <form method="POST" action="/GuardarVenta">
             @csrf
             <div class="container card p-4">
                 <div class="row g-2">
