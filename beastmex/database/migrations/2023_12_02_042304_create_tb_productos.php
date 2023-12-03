@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('PrecioVenta', 8, 2);
             $table->string('ImagenProducto')->nullable();
             $table->integer('estatus')->default(1);
+            $table->integer('Cantidad');
             $table->timestamps();
 
         });
