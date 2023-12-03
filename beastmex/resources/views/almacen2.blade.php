@@ -5,11 +5,7 @@
     <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
     <h2 class="display-1 text-center">Registro</h2>
     
-    <form class="d-flex relative p-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Buscar</button>
-    </form>
-
+   
     <div class="container">
         <div class="card container p-4">
             <script>
@@ -50,8 +46,8 @@
                     <div class="col-md">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Fecha de Ingreso:</label>
-                            <input type="text" value="{{ old('Fechaingreso') }}" name="Fechaingreso" class="form-control" id="recipient-name" placeholder="Ingrese la Fecha">
-                            <p class="text-primary">{{$errors->first('Fechaingreso')}}</p>
+                            <input type="text" value="{{ old('FechaIngreso') }}" name="FechaIngreso" class="form-control" id="recipient-name" placeholder="Ingrese la Fecha">
+                            <p class="text-primary">{{$errors->first('FechaIngreso')}}</p>
                         </div>
                     </div>
                     <div class="col-md">

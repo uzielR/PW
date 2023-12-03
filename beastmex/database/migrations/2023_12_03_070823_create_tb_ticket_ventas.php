@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_ticket_ventas', function (Blueprint $table) {
+        Schema::create('tb_ticket_ventas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('NombreCliente');
             $table->string('ApellidoPaterno');
@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('Marca5');
             $table->integer('Cantidad5');
             $table->decimal('Precio5',8,2);
+            $table->decimal('Total', 10, 2)->nullable;
             $table->timestamps();
-            
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_ticket_ventas');
+        Schema::dropIfExists('tb_ticket_ventas');
     }
 };

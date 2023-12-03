@@ -24,7 +24,7 @@
                 <td>{{ $item->Marca5 }}</td>
                 <td>{{ $item->Cantidad5 }}</td>
                 <td>{{ $item->Precio5 }}</td>
-                <td>{{ $item->total }}</td>
+                <td>{{optional($item)->Total}}</td>
             </tr>
         @endforeach
     </tbody>

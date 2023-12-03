@@ -4,9 +4,9 @@
     <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <h1 class="display-1 text-center">Productos</h1>
-    <form class="d-flex relative p-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit" >Buscar </button>
+    <form class="d-flex relative p-3" role="search" method="GET" action="{{ route('almacen.search') }}">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="search_query">
+        <button class="btn btn-outline-primary" type="submit">Buscar</button>
     </form>
     <script>
         @if(session('confirmacion'))
@@ -33,10 +33,10 @@
 
                     </tr>
                 </thead>
-                @foreach ($consR as $item)
+                @foreach ($productos as $item)
                     <tbody>
                         <tr class="text-center p-4 py-2">
-                            <th scope="row">{{$item->id }}</th>
+                            <th scope="row">{{$item->idProducto }}</th>
                             <td>{{$item->NombreProducto }}</td>
                             <td>{{$item->NombreMarca }}</td>
                             <td>{{$item->CostoProducto }}</td>
@@ -51,10 +51,10 @@
                             <td class="col p-2 text-center py-5">
                                 <div class="row justify-content-center">
                                     <div class="col-auto">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $item->id }}"><i class="bi bi-pencil-square"></i> Editar</button>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $item->idProducto}}"><i class="bi bi-pencil-square"></i> Editar</button>
                                     </div>
                                     <div class="col-auto">
-                                        <form method="POST" action="{{ route('almacen.destroy', $item->id) }}">
+                                        <form method="POST" action="{{ route('almacen.destroy', $item->idProducto) }}">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-outline-info"><i class="bi bi-trash"></i> Eliminar</button>
@@ -64,9 +64,9 @@
                             </td>
                         </tr>
                         @include('partials.modal')
-                    @endforeach
-                        
-                </tbody>
+                        @endforeach
+                    </tbody>
+                
             </table>
         </div>
         <div class="d-grid gap-5">

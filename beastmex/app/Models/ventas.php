@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ventas extends Model
 {
-    protected $table = '_ticket_ventas'; // Nombre de la tabla en la base de datos
+    protected $table = 'tb_ticket_ventas'; // Nombre de la tabla en la base de datos
 
     protected $fillable = [
         'id',

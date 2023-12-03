@@ -20,6 +20,7 @@
     <main>
         @yield('compras')
         @yield('almacen')
+        @yield('almacen/search')
         @yield('gerencia')
         @yield('almaceneditar')
         @yield('ventas')

@@ -81,6 +81,7 @@ use App\Http\Controllers\ProductoController;
     Route::post('/GuardarProductos',[ControllerAlmacen::class,'store'])->name('GuardarProductos.store');
     Route::put('EditarProductos/{id}/confirm',[ControllerAlmacen::class,'update'])->name('editarProducto.update');
     Route::delete('/almacen/{id}', [ControllerAlmacen::class, 'destroy'])->name('almacen.destroy');
+    Route::get('/almacen/search', [ControllerAlmacen::class, 'search'])->name('almacen.search');
     
 
     #FIN DE RUTAS DE ALMACEN----------------------------------------------------------------------------------

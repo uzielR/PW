@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_ticket_ventas', function (Blueprint $table) {
+        Schema::create('tb_ganancias', function (Blueprint $table) {
             $table->id();
+            $table->string('NombreCliente');
+            $table->string('ApellidoPaterno');
+            $table->string('ApellidoMaterno');
+            $table->decimal('Ganancia', 10, 2); // Columna para almacenar la ganancia, ajusta la precisión según tus necesidades
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_ticket_ventas');
+        Schema::dropIfExists('tb_ganancias');
     }
 };

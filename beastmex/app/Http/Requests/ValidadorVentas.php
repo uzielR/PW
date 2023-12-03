@@ -27,7 +27,7 @@ class ValidadorVentas extends FormRequest
               'NombreCliente' =>'required|alpha',
               'ApellidoPaterno'=>'required|alpha',
               'ApellidoMaterno'=>'required|alpha',
-              'NombreProducto'=>'required|alpha',
+              'NombreProducto'=>'required|string',
               'Marca5'=>'required|alpha',
               'Cantidad5'=>'required|numeric',
               'Precio5'=>'required|numeric',

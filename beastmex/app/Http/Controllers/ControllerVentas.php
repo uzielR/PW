@@ -16,11 +16,29 @@ class ControllerVentas extends Controller
      */
     public function index()
     {
-        //
-        $cons=DB::table('_ticket_ventas')->get();/* consulta */
-        return view('ventas',compact('cons')); 
+        $consR = DB::table('tb_productos')
+                    ->where('estatus', 1) // Filtrar por estatus igual a 1
+                    ->get();
 
+        $cons = DB::table('tb_ticket_ventas')
+        ->join('tb_productos', 'tb_ticket_ventas.id', '=', 'tb_productos.idProducto')
+        ->select(
+            'tb_ticket_ventas.id',
+            'tb_ticket_ventas.updated_at',
+            'tb_ticket_ventas.NombreCliente',
+            'tb_ticket_ventas.ApellidoPaterno',
+            'tb_ticket_ventas.ApellidoMaterno',
+            'tb_productos.NombreProducto',
+            'tb_ticket_ventas.Marca5',
+            'tb_ticket_ventas.Cantidad5',
+            'tb_ticket_ventas.Precio5',
+            'tb_ticket_ventas.Total'
+        )->get();
+                
+
+        return view('ventas', compact('cons', 'consR')); 
     }
+
 
     public function pdf($id){
        /*  $venta = ventas::findOrFail($id);
@@ -37,7 +55,7 @@ class ControllerVentas extends Controller
         
     }
      
-    
+
        
     
 
@@ -47,7 +65,10 @@ class ControllerVentas extends Controller
     public function create()
     {
         //
-        return view('ventaStock');
+        // Obtener todos los productos disponibles
+        $productos = DB::table('tb_productos')->where('estatus', 1)->get();
+        
+        return view('ventaStock', compact('productos'));
     }
 
     /**
@@ -56,8 +77,15 @@ class ControllerVentas extends Controller
     public function store(ValidadorVentas $request)
     {
         //
-        
-        DB::table('_ticket_ventas')->insert([
+            // Obtener el total de la venta
+        $total = $request->input('Cantidad5') * $request->input('Precio5');
+
+        // Calcular la ganancia restando el costo al total
+        $costo = $request->input('CostoProducto'); // Asegúrate de obtener el costo del producto desde tu formulario
+        $ganancia = $total - ($request->input('Cantidad5') * $costo);
+
+        // Insertar los datos en la tabla de ventas
+        DB::table('tb_ticket_ventas')->insert([
             'NombreCliente' => $request->input('NombreCliente'),
             'ApellidoPaterno' => $request->input('ApellidoPaterno'),
             'ApellidoMaterno' => $request->input('ApellidoMaterno'),
@@ -65,10 +93,21 @@ class ControllerVentas extends Controller
             'Marca5' => $request->input('Marca5'),
             'Cantidad5' => $request->input('Cantidad5'),
             'Precio5' => $request->input('Precio5'),
-            "updated_at"=>Carbon::now(),
-           
+            'Total' => $total,
+            "updated_at" => Carbon::now(),
         ]);
-        return redirect('/ventaStock')->with('confirmacion', 'Tu Nueva Venta ah llegado al controlador');
+
+        // Insertar la ganancia en la tabla de ganancias
+        DB::table('tb_ganancias')->insert([
+            'NombreCliente' => $request->input('NombreCliente'),
+            'ApellidoPaterno' => $request->input('ApellidoPaterno'),
+            'ApellidoMaterno' => $request->input('ApellidoMaterno'),
+            'Ganancia' => $ganancia,
+            "updated_at" => Carbon::now(),
+        ]);
+
+        return redirect('/ventaStock')->with('confirmacion', 'Tu nueva venta ha sido registrada con éxito');
+        
     }
 
     
@@ -96,7 +135,7 @@ class ControllerVentas extends Controller
     {
         //
         
-        DB::table('_ticket_ventas')->insert([
+        DB::table('tb_ticket_ventas')->insert([
             'NombreCliente' => $request->input('NombreCliente'),
             'ApellidoPaterno' => $request->input('ApellidoPaterno'),
             'ApellidoMaterno' => $request->input('ApellidoMaterno'),

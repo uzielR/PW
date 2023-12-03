@@ -46,8 +46,13 @@
                 <div class="row g-2">
                     <div class="col-md">
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Nombre del Producto:</label>
-                            <input type="text" name="NombreProducto" value="{{old('NombreProducto')}}" class="form-control" id="recipient-name" placeholder="Ingrese el Nombre del Producto">
+                            <label for="producto" class="col-form-label">Nombre del Producto:</label>
+                            <select name="NombreProducto" class="form-control" id="producto">
+                                <option value="">Seleccione un producto</option>
+                                @foreach ($productos as $producto)
+                                    <option value="{{ $producto->idProducto }}">{{ $producto->NombreProducto }}</option>
+                                @endforeach
+                            </select>
                             <p class="text-primary">{{$errors->first('NombreProducto')}}</p>
                         </div>
                     </div>

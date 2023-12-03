@@ -1,5 +1,5 @@
 {{-- INICIO DE MODAL --}}
-<div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade" id="exampleModal{{ $item->idProducto}}" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,28 +8,28 @@
             </div>
             <div class="modal-body">
                 <div class="row g-2">
-                    <form method="POST" action="/EditarProductos/{{$item->id}}/confirm" enctype="multipart/form-data">
+                    <form method="POST" action="/EditarProductos/{{$item->idProducto}}/confirm" enctype="multipart/form-data">
                         @csrf 
                         @method('PUT')
                         <div class="col-md">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Nombre del Producto:</label>
-                                <input type="text" name="NombreProductoPN" value="{{$item->NombreProducto}}" class="form-control" id="recipient-name">
-                                {{$errors->first('NombreProductoPN')}}
+                                <input type="text" name="NombreProducto" value="{{$item->NombreProducto}}" class="form-control" id="recipient-name">
+                                {{$errors->first('NombreProducto')}}
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Marca:</label>
-                                <input type="text" name="NombreMarcaNP" value="{{$item->NombreMarca }}"  class="form-control" id="recipient-name">
-                                {{$errors->first('NombreMarcaNP')}}
+                                <input type="text" name="NombreMarca" value="{{$item->NombreMarca }}"  class="form-control" id="recipient-name">
+                                {{$errors->first('NombreMarca')}}
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Costo:</label>
-                                <input type="text" name="CostoProductoPN" value="{{$item->CostoProducto}}"  class="form-control" id="recipient-name">
-                                {{$errors->first('CostoProductoPN')}}
+                                <input type="text" name="CostoProducto" value="{{$item->CostoProducto}}"  class="form-control" id="recipient-name">
+                                {{$errors->first('CostoProducto')}}
                             </div>
                         </div>
                       
@@ -37,15 +37,15 @@
                             <div class="col-md">
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Fecha ingreso:</label>
-                                    <input type="text" name="FechaIngresoPN" value="{{$item->FechaIngreso }}"  class="form-control" id="recipient-name">
-                                    {{$errors->first('FechaIngresoPN')}}
+                                    <input type="text" name="FechaIngreso" value="{{$item->FechaIngreso }}"  class="form-control" id="recipient-name">
+                                    {{$errors->first('FechaIngreso')}}
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Precio venta:</label>
-                                    <input type="text" name="PrecioVentaPN" value="{{$item->PrecioVenta }}"  class="form-control" id="recipient-name">
-                                    {{$errors->first('PrecioVentaPN')}}
+                                    <input type="text" name="PrecioVenta" value="{{$item->PrecioVenta }}"  class="form-control" id="recipient-name">
+                                    {{$errors->first('PrecioVenta')}}
                                 </div>
                             </div>
                         </div> 
@@ -53,7 +53,7 @@
                             <div class="col-md">
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Selecciona una foto:</label>
-                                    <input type="file" name="ImagenProducto" value="{{'imagenes2/' .$item->ImagenProducto}}"  class="form-control" id="recipient-name">
+                                    <input type="file" name="ImagenProducto" value="{{'imagenes2/'.$item->ImagenProducto}}"  class="form-control" id="recipient-name" accept="image/*">
                                     {{$errors->first('ImagenProducto')}}
                                 </div>
                             </div>
