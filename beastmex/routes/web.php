@@ -28,7 +28,7 @@ Route::get('/compras', function () {
     return view('compras');
 });
  */
-
+use App\Http\Controllers\gerenciaCrudController;
 use App\Http\Controllers\proveedoresCrud;
 use App\Http\Controllers\beastmexController;// instruccion que se necesita para hacer el controlador 
 use App\Http\Controllers\ProductoController;
@@ -51,13 +51,13 @@ use App\Http\Controllers\ProductoController;
     Route::get('/ventas', 'metodoventas')->name('apodoventas');
     /* Route::get('/ventaStock', 'metodoventaStock')->name('apodoventaStock'); */
     /* GERENCIA */
-    Route::get('/gerenciaRegistro', 'metodoGerencia')->name('apodoGerencia');
+    /* Route::get('/gerenciaRegistro', 'metodoGerencia')->name('apodoGerencia');
     Route::get('/gerenciaReporte', 'consultarReportes')->name('apodoReporte');
     Route::get('/usuarios', 'listarUsuarios')->name('apodoUsuarios');
 
     Route::get('/ventasGrafica', 'metodoventasGrafica')->name('apodoventasGrafica');
     Route::get('/comprasGrafica', 'metodocomprasGrafica')->name('apodocomprasGrafica');
-    Route::get('/gananciasGrafica', 'metodogananciasGrafica')->name('apodogananciasGrafica');
+    Route::get('/gananciasGrafica', 'metodogananciasGrafica')->name('apodogananciasGrafica'); */
     
     /* SESION METODO POST */
     Route::post('/login','metodologin')->name('apodologin');
@@ -82,7 +82,7 @@ use App\Http\Controllers\ProductoController;
     Route::put('EditarProductos/{id}/confirm',[ControllerAlmacen::class,'update'])->name('editarProducto.update');
     Route::delete('/almacen/{id}', [ControllerAlmacen::class, 'destroy'])->name('almacen.destroy');
     Route::get('/almacen/search', [ControllerAlmacen::class, 'search'])->name('almacen.search');
-    
+    Route::get('almacen/pdf/{id}', [ControllerVentas::class, 'pdf'])->name('ventas.pdf');
 
     #FIN DE RUTAS DE ALMACEN----------------------------------------------------------------------------------
     #NUEVAS RUTAS DE PROVEEDORES-------------------------------------------------------------------------------
@@ -101,4 +101,9 @@ use App\Http\Controllers\ProductoController;
     Route::get('/ventaStock', [ControllerVentas::class,'create'])->name('ventas.create');
     Route::post('/GuardarVenta',[ControllerVentas::class,'store'])->name('guardarventa.store');
     Route::put('EditarVentas/{id}/confirm',[ControllerVentas::class,'update'])->name('editarventas.update');
+    #Rutas de Gerencia-----------------------------------------------------------------------------------
+    Route::get('/gerenciaRegistro', [gerenciaCrudController::class,'create'])->name('gerencia.user.create');
+    Route::get('gerenciaVistaUsuarios', [gerenciaCrudController::class,'index'])->name('gerencia.vista');
+    Route::post('/GuardarRegistroUsuario',[gerenciaCrudController::class,'store'])->name('usuario.store');
+    Route::put('EditarRegistroUsuario/{id}/confirm',[gerenciaCrudController::class,'update'])->name('editarRegistroUsuario.update');
 });

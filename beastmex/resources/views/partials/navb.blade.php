@@ -23,7 +23,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/gerenciaRegistro">GERENCIA</a>
+                    <a class="nav-link" href="/gerenciaVistaUsuarios">GERENCIA</a>
                 </li>
 
 
