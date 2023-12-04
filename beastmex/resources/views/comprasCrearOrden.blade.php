@@ -72,48 +72,60 @@
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Nombre de la empresa:</label>
-                                <input type="text" name="Empresa1" value="{{old('Empresa1')}}" class="form-control" id="recipient-name" placeholder="Ingrese el Nombre de la Emresa">
-                                <p class="text-primary">{{$errors->first('Empresa1')}}</p>
+                                <label for="empresa_id" class="col-form-label">Nombre de la empresa:</label>
+                                <select name="NombreProducto" class="form-control" id="empresa_id">
+                                    <option value="">Seleccione una Empresa</option>
+                                    @foreach ($proveedores as $proveedor)
+                                        <option value="{{ $proveedor->id }}" 
+                                                data-direccion="{{ $proveedor->direccion }}"
+                                                data-direccion2="{{ $proveedor->direccion2 }}"
+                                                data-correo="{{ $proveedor->correoE}}"
+                                                data-codigo-postal="{{ $proveedor->codigoPostalphp }}"
+                                                data-telefono="{{ $proveedor->telefono }}">
+                                            {{ $proveedor->nombreEmpresa }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Direccion:</label>
-                                <input type="text" name="DireccionEmpresa1" value="{{old('DireccionEmpresa1')}}" class="form-control" id="recipient-name" placeholder="Ingrese la Direccion de la Empresa">
-                                <p class="text-primary">{{$errors->first('DireccionEmpresa1')}}</p>
+                                <label for="direccion" class="col-form-label">Dirección:</label>
+                                <input type="text" name="direccion" value="{{ old('DireccionEmpresa1') }}" class="form-control" id="direccion" placeholder="Ingrese la Dirección de la Empresa">
+                                <p class="text-primary">{{ $errors->first('DireccionEmpresa1') }}</p>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Linea de Direccion 2:</label>
-                                <input type="text" name="Dirrecion1" value="{{old('Dirrecion1')}}" class="form-control" id="recipient-name" placeholder="Ingrese la Dirección Dos de la Empresa">
-                                <p class="text-primary">{{$errors->first('Dirrecion1')}}</p>
+                                <label for="direccion2" class="col-form-label">Línea de Dirección 2:</label>
+                                <input type="text" name="direccion2" value="{{ old('Dirrecion1') }}" class="form-control" id="direccion2" placeholder="Ingrese la Dirección Dos de la Empresa">
+                                <p class="text-primary">{{ $errors->first('Dirrecion1') }}</p>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
+                    
                     <div class="row g-2">
                         
                         <div class="col-md">
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Email:</label>
-                                <input type="text" name="Condado1" value="{{old('Condado1')}}" class="form-control" id="recipient-name" placeholder="Ingrese el Condador">
-                                <p class="text-primary">{{$errors->first('Condado1')}}</p>
+                                <label for="correo" class="col-form-label">Correo Electrónico:</label>
+                                <input type="text" name="correo" value="{{ old('CorreoEmpresa') }}" class="form-control" id="correo" placeholder="Ingrese el Correo Electrónico de la Empresa">
+                                <p class="text-primary">{{ $errors->first('CorreoEmpresa') }}</p>
                             </div>
                         </div>
                         
                         <div class="col-md">
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Codigo Postal:</label>
-                                <input type="text" name="Codigopostal1" value="{{old('Codigopostal1')}}" class="form-control" id="recipient-name" placeholder="Ingrese el Codigo Postal de la Empresa">
-                                <p class="text-primary">{{$errors->first('Codigopostal1')}}</p>
+                                <label for="codigo_postal" class="col-form-label">Código Postal:</label>
+                                <input type="text" name="codigo_postal" value="{{ old('CodigoPostalEmpresa') }}" class="form-control" id="codigo_postal" placeholder="Ingrese el Código Postal de la Empresa">
+                                <p class="text-primary">{{ $errors->first('CodigoPostalEmpresa') }}</p>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Telefono:</label>
-                                <input type="text" name="Telefono1" value="{{old('Telefono1')}}" class="form-control" id="recipient-name" placeholder="Ingrese el Numero Telefonico">
-                                <p class="text-primary">{{$errors->first('Telefono1')}}</p>
+                                <label for="telefono" class="col-form-label">Teléfono:</label>
+                                <input type="text" name="telefono" value="{{ old('TelefonoEmpresa') }}" class="form-control" id="telefono" placeholder="Ingrese el Teléfono de la Empresa">
+                                <p class="text-primary">{{ $errors->first('TelefonoEmpresa') }}</p>
                             </div>
                         </div>
                         
@@ -170,6 +182,31 @@
                 
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#empresa_id').on('change', function() {
+                var empresa = $(this).find('option:selected');
+
+                // Obtiene la información de la empresa seleccionada de los atributos de datos
+                var direccion = empresa.data('direccion');
+                var direccion2 = empresa.data('direccion2');
+                var correo = empresa.data('correo');
+                var codigoPostal = empresa.data('codigo-postal');
+                var telefono = empresa.data('telefono');
+
+                // Actualiza los campos del formulario con la información de la empresa
+                $('#direccion').val(direccion);
+                $('#direccion2').val(direccion2);
+                $('#correo').val(correo);
+                $('#codigo_postal').val(codigoPostal);
+                $('#telefono').val(telefono);
+                // Asigna los valores de los demás campos si es necesario
+            });
+        });
+    </script>
+
+
 @endsection 
 
 

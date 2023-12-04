@@ -24,7 +24,7 @@ class beastmexController extends Controller
     }
     public function metodocompras(){
         
-        return view('compras');
+        return redirect ()->route('compras.index');
     }
     
     public function metodogerencia(){
@@ -55,7 +55,7 @@ class beastmexController extends Controller
     }
     public function metodocrearOrden(){
         
-        return view('comprasCrearOrden');
+        return redirect ()->route('NuevaOrden.create');
     }
     
     public function metodoVerOrden(){

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class validadorBeastmex extends FormRequest
+class validadorCatProductos extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,16 +22,9 @@ class validadorBeastmex extends FormRequest
     public function rules(): array
     {
         return [
-            //
-            'NombreProducto' =>'required|alpha',
-            'NombreMarca'=>'required|alpha',
-            'CostoProducto'=>'required|numeric',
-            'CantidadProducto'=>'required|numeric',
-            'FechaIngreso'=>'required',
-            'ImagenProducto'=>'required'
-            /* 'Foto2'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048', */
-            
-            
+            //Ecribimos las reglas de validación en el return
+            'txtproductBrand' => 'required|not_in:#', // 'not_in:#' verifica que no sea el valor por defecto '#'
+            'txtproductName' => 'required|string',
         ];
     }
 }

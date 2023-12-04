@@ -36,22 +36,19 @@ class ControllerVentas extends Controller
         )->get();
                 
 
-        return view('ventas', compact('cons', 'consR')); 
+        return view('ventas', compact('cons','consR')); 
     }
 
 
     public function pdf($id){
-       /*  $venta = ventas::findOrFail($id);
+        $venta = ventas::findOrFail($id);
         $cons = ventas::all(); 
         $pdf = PDF::loadView('pdf', compact('cons')); 
-        return $pdf->download('ventas.pdf');  */
-        $venta = ventas::findOrFail($id);
-
-        // Obtener otros datos si es necesario
-        $cons = ventas::all(); // Esto puede variar según tus necesidades de consulta
-
-        $pdf = PDF::loadView('pdf', compact('cons')); 
         return $pdf->download('ventas.pdf'); 
+       /*  $cons = ventas::all(); 
+        $venta = ventas::findOrFail($id);
+        $pdf = PDF::loadView('pdf', compact('venta')); // Solo pasamos la venta específica a la vista PDF
+        return $pdf->download('venta_' . $id . '.pdf');   */// Nombre del archivo PDF basado en el ID de la venta
         
     }
      

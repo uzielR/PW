@@ -17,6 +17,7 @@
                         <th>Nombre</th>
                         <th>Marca</th>
                         <th>Costo</th>
+                        <th>Cantidad</th>
                         <th>Fecha Ingreso</th>
                         <th>Precio Venta</th>
                         <th>Foto</th>
@@ -31,6 +32,7 @@
                             <td>{{$item->NombreProducto }}</td>
                             <td>{{$item->NombreMarca }}</td>
                             <td>{{$item->CostoProducto }}</td>
+                            <td>{{$item->Cantidad }}</td>
                             <td>{{$item->FechaIngreso }}</td>
                             <td>{{$item->PrecioVenta }}</td>
                             {{-- <td>{{$item->ImagenProducto }}</td> --}}
@@ -42,7 +44,7 @@
                             
                         </tr>
                         @include('partials.modal')
-                    @endforeach
+                @endforeach
                         
                 </tbody>
             </table>

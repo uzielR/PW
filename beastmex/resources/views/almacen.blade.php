@@ -26,8 +26,9 @@
                         <th>Nombre</th>
                         <th>Marca</th>
                         <th>Costo</th>
-                        <th>Precio Venta</th>
+                        <th>Cantidad</th>
                         <th>Fecha Ingreso</th>
+                        <th>Precio Venta</th>
                         <th>Foto</th>
                         <th> </th>
 
@@ -40,6 +41,7 @@
                             <td>{{$item->NombreProducto }}</td>
                             <td>{{$item->NombreMarca }}</td>
                             <td>{{$item->CostoProducto }}</td>
+                            <td>{{$item->Cantidad }}</td>
                             <td>{{$item->FechaIngreso }}</td>
                             <td>{{$item->PrecioVenta }}</td>
                             {{-- <td>{{$item->ImagenProducto }}</td> --}}

@@ -32,6 +32,7 @@
         @yield('ventasGrafica')
         @yield('comprasGrafica')
         @yield('gananciasGrafica')
+        @yield('catalogoProductos')
         <div class="contenidoGerencia">
             @yield('gerenciaRegistro')
         <div>

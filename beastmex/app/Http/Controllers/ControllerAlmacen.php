@@ -50,6 +50,7 @@ class ControllerAlmacen extends Controller
     public function store(validadorBeastmex $request)
     {
         //
+        $PrecioVenta = $request->input('CostoProducto') *2;
         
         if ($request->hasFile('ImagenProducto')) {
             $imagen = $request->file('ImagenProducto');
@@ -63,8 +64,9 @@ class ControllerAlmacen extends Controller
             'NombreProducto' => $request->input('NombreProducto'),
             'NombreMarca' => $request->input('NombreMarca'),
             'CostoProducto' => $request->input('CostoProducto'),
+            'Cantidad' => $request->input('CantidadProducto'),
             'FechaIngreso' => Carbon::now(),
-            'PrecioVenta' => $request->input('PrecioVenta'),
+            'PrecioVenta' => $PrecioVenta,
             "updated_at"=>Carbon::now(),
             'ImagenProducto' => $rutaImagen, // Guardar la ruta de la imagen en la base de datos
         ]);
@@ -104,6 +106,7 @@ class ControllerAlmacen extends Controller
             'NombreProducto' => $request->input('NombreProducto'),
             'NombreMarca' => $request->input('NombreMarca'),
             'CostoProducto' => $request->input('CostoProducto'),
+            'Cantidad' => $request->input('CantidadProducto'),
             'FechaIngreso' =>$request->input('FechaIngreso') ,
             'PrecioVenta' => $request->input('PrecioVenta'),
             "updated_at"=>Carbon::now(),

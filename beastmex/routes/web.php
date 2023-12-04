@@ -28,6 +28,8 @@ Route::get('/compras', function () {
     return view('compras');
 });
  */
+use App\Http\Controllers\CatProductosCrudController;
+use App\Http\Controllers\ComprasController;
 use App\Http\Controllers\gerenciaCrudController;
 use App\Http\Controllers\proveedoresCrud;
 use App\Http\Controllers\beastmexController;// instruccion que se necesita para hacer el controlador 
@@ -41,7 +43,7 @@ use App\Http\Controllers\ProductoController;
     /* Route::get('/almacen3', 'metodoalmacen3')->name('apodoalmacen3'); */
     /* Route::get('/almacen2', 'metodoalmacen2')->name('apodoalmacen2'); */
     /* COMPRAS */
-    Route::get('/compras', 'metodocompras')->name('apodocompras');
+   /*  Route::get('/compras', 'metodocompras')->name('apodocompras'); */
     Route::match(['get', 'post'], '/comprasCrearOrden', 'metodocrearOrden')->name('apodocrearOrden');
     Route::get('/comprasVerOrden', 'metodoVerOrden')->name('apodoVerOrden');
     /* Route::get('/proveedores', 'metodoproveedores')->name('apodoproveedores'); */
@@ -106,4 +108,19 @@ use App\Http\Controllers\ProductoController;
     Route::get('gerenciaVistaUsuarios', [gerenciaCrudController::class,'index'])->name('gerencia.vista');
     Route::post('/GuardarRegistroUsuario',[gerenciaCrudController::class,'store'])->name('usuario.store');
     Route::put('EditarRegistroUsuario/{id}/confirm',[gerenciaCrudController::class,'update'])->name('editarRegistroUsuario.update');
+    #Rutas de Compras-------------------------------------------------------------------------------------
+    Route::get('/compras', [ComprasController::class,'index'])->name('compras.index');
+    Route::get('/NuevaOrden', [ComprasController::class,'create'])->name('NuevaOrden.create');
+
+    #CATALOGO--------------------------------------------------------------------------------------------------
+    Route::get('/catalogoRegistro', [CatProductosCrudController::class,'create'])->name('catalogo.new.create');
+    Route::get('catalogoProductos', [CatProductosCrudController::class,'index'])->name('catalogo.vista');
+    Route::post('/GuardarRegistroProducto',[CatProductosCrudController::class,'store'])->name('producto.store');
+    Route::put('EditarProductoCatalogo/{id}/confirm',[CatProductosCrudController::class,'update'])->name('productoCatalogo.update');
+    Route::delete('destroyProductoCatalogo/{id}/delete',[CatProductosCrudController::class, 'destroy']) -> name ('productoCatalogo.destroy');
+    #FIN DE RUTAS DE CATALOGO----------------------------------------------------------------------------------
+ 
+ 
+ 
+    
 });

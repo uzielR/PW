@@ -41,20 +41,21 @@
                             <p class="text-primary">{{$errors->first('CostoProducto')}}</p>
                         </div>
                     </div>
+        
                 </div>
                 <div class="row g-2 py-2">
                     <div class="col-md">
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Fecha de Ingreso:</label>
-                            <input type="text" value="{{ old('FechaIngreso') }}" name="FechaIngreso" class="form-control" id="recipient-name" placeholder="Ingrese la Fecha">
-                            <p class="text-primary">{{$errors->first('FechaIngreso')}}</p>
+                            <label for="recipient-name" class="col-form-label">Cantidad:</label>
+                            <input type="text" value="{{old('CantidadProducto')}}" name="CantidadProducto" class="form-control" id="recipient-name" placeholder="Ingrese el Costo del Producto" >
+                            <p class="text-primary">{{$errors->first('CantidadProducto')}}</p>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Precio Venta:</label>
-                            <input type="text" value="{{old('PrecioVenta')}}" name="PrecioVenta" class="form-control" id="recipient-name" placeholder="Ingrese el Precio Venta del Producto">
-                            <p class="text-primary">{{$errors->first('PrecioVenta')}}</p>
+                            <label for="recipient-name" class="col-form-label">Fecha de Ingreso:</label>
+                            <input type="date" value="{{ old('FechaIngreso') }}" name="FechaIngreso" class="form-control" id="recipient-name" placeholder="Ingrese la Fecha">
+                            <p class="text-primary">{{$errors->first('FechaIngreso')}}</p>
                         </div>
                     </div>
                     <div class="col-md">

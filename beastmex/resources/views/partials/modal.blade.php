@@ -1,6 +1,6 @@
 {{-- INICIO DE MODAL --}}
 <div class="modal fade" id="exampleModal{{ $item->idProducto}}" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-2" id="exampleModalLabel">Editar Producto</h1>
@@ -30,6 +30,13 @@
                                 <label for="recipient-name" class="col-form-label">Costo:</label>
                                 <input type="text" name="CostoProducto" value="{{$item->CostoProducto}}"  class="form-control" id="recipient-name">
                                 {{$errors->first('CostoProducto')}}
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Cantidad:</label>
+                                <input type="text" name="CantidadProducto" value="{{$item->Cantidad}}"  class="form-control" id="recipient-name">
+                                {{$errors->first('CantidadProducto')}}
                             </div>
                         </div>
                       
