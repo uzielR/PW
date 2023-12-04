@@ -15,14 +15,29 @@ class proveedoresCrud extends Controller
      */
     public function index()
     {
-        //
-        $consR=DB::table('proveedores')->get();/* consulta */
-        return view('/proveedores',compact('consR')); 
+        $consR = DB::table('proveedores')
+                ->where('estatus', 1) // Filtrar por estatus igual a 1
+                ->get();
+        return view('proveedores',compact('consR')); 
+
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function search(Request $request)
+    {
+        $search_query = $request->input('search_query');
+
+        $consR = DB::table('proveedores')
+            ->where('estatus', 1)
+            ->where(function ($query) use ($search_query) {
+                $query->where('id', 'LIKE', "%$search_query%")
+                    ->orWhere('nombreEmpresa', 'LIKE', "%$search_query%");
+            })
+            ->get();
+
+        return view('proveedores', compact('consR'));
+    }
+    
     public function create()
     {
         return view('crearProveedor');
@@ -89,6 +104,8 @@ class proveedoresCrud extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('proveedores')->where('id', $id)->update(['estatus' => 0]);
+
+        return redirect('/proveedores')->with('confirmacion', 'proveedor eliminado exitosamente');
     }
 }

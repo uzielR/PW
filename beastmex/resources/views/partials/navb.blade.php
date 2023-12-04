@@ -7,11 +7,7 @@
         <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/catalogoProductos">CATALOGO</a>
-                </li>
-                <li class="nav-item">
-                <li class="nav-item">
-                    <a class="nav-link" href="/almacen">ALMACEN RECIBO</a>
+                    <a class="nav-link" href="/almacen">INVENTARIO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{request()->routeIs('almacen2.create')?'text-primary':''}}" href="/almacen2">REGISTRO PRODUCTOS</a>

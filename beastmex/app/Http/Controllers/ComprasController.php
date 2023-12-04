@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class ComprasController extends Controller
 {
@@ -19,7 +22,8 @@ class ComprasController extends Controller
                     ->where('Cantidad', '<', 2) // Filtrar por estatus igual a 1
                     ->get();
 
-        return view('/compras', compact('consb')); 
+        return view('/compras', compact('consb'));
+       
     }
 
     /**
@@ -38,7 +42,20 @@ class ComprasController extends Controller
     public function store(Request $request)
     {
         //
+        $correoDestino = $request->input('correo');
+
+        $contenidoCorreo = 'Contenido específico del correo:' . "\n";
+        $contenidoCorreo .= 'Empresa: ' . $request->input('Empresa') . "\n";
+        $contenidoCorreo .= 'Dirección de la empresa: ' . $request->input('DireccionEmpresa') . "\n";
+        // Agrega más información relevante de la orden o detalles de productos
+    
+        Mail::raw($contenidoCorreo, function ($message) use ($correoDestino) {
+            $message->to($correoDestino)->subject('Asunto del correo');
+        });
+    
+        return Redirect::back('/NuevaOrden')->with('success', 'Correo enviado correctamente');
     }
+    
 
     /**
      * Display the specified resource.

@@ -84,19 +84,23 @@ use App\Http\Controllers\ProductoController;
     Route::put('EditarProductos/{id}/confirm',[ControllerAlmacen::class,'update'])->name('editarProducto.update');
     Route::delete('/almacen/{id}', [ControllerAlmacen::class, 'destroy'])->name('almacen.destroy');
     Route::get('/almacen/search', [ControllerAlmacen::class, 'search'])->name('almacen.search');
-    Route::get('almacen/pdf/{id}', [ControllerVentas::class, 'pdf'])->name('ventas.pdf');
+    Route::get('almacen/pdf', [ControllerAlmacen::class, 'pdf'])->name('almacen.pdf');
+
+
 
     #FIN DE RUTAS DE ALMACEN----------------------------------------------------------------------------------
+
     #NUEVAS RUTAS DE PROVEEDORES-------------------------------------------------------------------------------
     //levar solo a la ruta
     Route::get('/proveedores', [proveedoresCrud::class,'index'])->name('proveedor.index');
-
     //levar solo a crear proveedor
     Route::get('/proveedores/create', [proveedoresCrud::class,'create'])->name('recuerdo.create');
     Route::post('/proveedores/store',[proveedoresCrud::class,'store'])->name('proveedores.store');
-
     //modificar y borrar
     Route::put('/EditarProveedores/{id}/confirm',[proveedoresCrud::class,'update'])->name('proveedor.update');
+    Route::delete('/proveedores/{id}', [proveedoresCrud::class, 'destroy'])->name('provedores.destroy');
+    //buscar
+    Route::get('/proveedores/search', [proveedoresCrud::class, 'search'])->name('proveedores.search');
     #Rutas Ventas---------------------------------------------------------------------------------------------
     Route::get('/ventas', [ControllerVentas::class,'index'])->name('ventas.index');
     Route::get('ventas/pdf/{id}', [ControllerVentas::class, 'pdf'])->name('ventas.pdf');
@@ -104,14 +108,19 @@ use App\Http\Controllers\ProductoController;
     Route::post('/GuardarVenta',[ControllerVentas::class,'store'])->name('guardarventa.store');
     Route::put('EditarVentas/{id}/confirm',[ControllerVentas::class,'update'])->name('editarventas.update');
     #Rutas de Gerencia-----------------------------------------------------------------------------------
+    #Rutas de Gerencia-----------------------------------------------------------------------------------
     Route::get('/gerenciaRegistro', [gerenciaCrudController::class,'create'])->name('gerencia.user.create');
     Route::get('gerenciaVistaUsuarios', [gerenciaCrudController::class,'index'])->name('gerencia.vista');
     Route::post('/GuardarRegistroUsuario',[gerenciaCrudController::class,'store'])->name('usuario.store');
     Route::put('EditarRegistroUsuario/{id}/confirm',[gerenciaCrudController::class,'update'])->name('editarRegistroUsuario.update');
+    Route::delete('/gerencia/{id}', [gerenciaCrudController::class, 'destroy'])->name('gerencia.destroy');
+    Route::get('/gerenciaVistaUsuarios/pdf/{id}', [gerenciaCrudController::class, 'pdf'])->name('gerenciaVistaUsuarios.pdf');
+    //graficas 
+    Route::get('/graficaGanancias', [gerenciaCrudController::class,'indexG'])->name('graficaGanancias.create');
     #Rutas de Compras-------------------------------------------------------------------------------------
     Route::get('/compras', [ComprasController::class,'index'])->name('compras.index');
     Route::get('/NuevaOrden', [ComprasController::class,'create'])->name('NuevaOrden.create');
-
+    Route::post('/GuardarOrden',[ComprasController::class,'store'])->name('GuardarOrden.store');
     #CATALOGO--------------------------------------------------------------------------------------------------
     Route::get('/catalogoRegistro', [CatProductosCrudController::class,'create'])->name('catalogo.new.create');
     Route::get('catalogoProductos', [CatProductosCrudController::class,'index'])->name('catalogo.vista');

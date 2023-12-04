@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\validadorMgrRegistro;
 use DB;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\pdf;
+use App\Models\gerencia;
 
 
 class gerenciaCrudController extends Controller
@@ -15,11 +17,30 @@ class gerenciaCrudController extends Controller
      */
     public function index()
     {
-        //
-        /* Si quisieramos un parametro, lo agregamos en el parentesis del "get" */
-        $consR = DB::table('usuariosbm')->get();/* consulta */
-        /* En caso de requerir más variables, vamos a poner una comma y dentro del parentesis de compact(), ahí se agrega */
-        return view('gerenciaVistaUsuarios', compact('consR'));
+        
+        $consR = DB::table('usuariosbm')
+                ->where('estatus', 1) // Filtrar por estatus igual a 1
+                ->get();
+        return view('gerenciaVistaUsuarios',compact('consR')); 
+
+        
+    }
+    
+
+    public function indexG()
+    {
+        
+        $productos = DB::table('tb_productos')
+        ->where('estatus', 1)
+        ->get();
+
+        // Preparar datos para la gráfica
+        $graficaData = [['productos', 'Costo', 'PrecioVenta']];
+        foreach ($productos as $item) {
+            $graficaData[] = [$item->NombreProducto, (float) $item->CostoProducto, (float) $item->PrecioVenta];
+        }
+
+    return view('/graficaGanancias', compact('productos', 'graficaData'));
     }
 
     /**
@@ -29,6 +50,12 @@ class gerenciaCrudController extends Controller
     {
         //
         return view('/gerenciaRegistro');
+    }
+
+    public function createG()
+    {
+        //
+        return view('/graficaGanancias');
     }
 
     /**
@@ -93,6 +120,21 @@ class gerenciaCrudController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Cambiar el estatus a 0 para indicar que está inactivo (eliminado lógicamente)
+        DB::table('usuariosbm')->where('id', $id)->update(['estatus' => 0]);
+
+        return redirect('/gerenciaVistaUsuarios')->with('confirmacion', 'Usuario eliminado exitosamente');
     }
+
+
+    public function pdf($id){
+        $gerencia = gerencia::findOrFail($id);
+    
+        // Obtener otros datos si es necesario
+        $cons = gerencia::all(); // Esto puede variar según tus necesidades de consulta
+    
+        $pdf = PDF::loadView('pdfgerencia', compact('cons')); // 'pdf' es el nombre de tu vista para el PDF
+        return $pdf->download('gerencia.pdf');
+    }
+
 }

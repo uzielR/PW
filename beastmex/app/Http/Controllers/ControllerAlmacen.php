@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests\validadorBeastmex;
 use DB;
 use Carbon\Carbon;
+
+use PDF;
+use App\Models\Almacen;
+
+
 class ControllerAlmacen extends Controller
 {
     /**
@@ -71,6 +76,16 @@ class ControllerAlmacen extends Controller
             'ImagenProducto' => $rutaImagen, // Guardar la ruta de la imagen en la base de datos
         ]);
         return redirect('/almacen2')->with('confirmacion', 'Tu recuerdo llegó al controlador');
+    }
+    
+    public function pdf()
+    {
+        $productos = Almacen::all(); // Obtener todos los productos
+
+        // Crear el PDF utilizando la vista 'pdfAlmacen' y los datos de todos los productos
+        $pdf = PDF::loadView('pdfAlmacen', compact('productos'));
+
+        return $pdf->download('lista_productos_almacen.pdf'); // Descargar el PDF generado
     }
 
     /**

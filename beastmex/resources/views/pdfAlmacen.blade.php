@@ -1,31 +1,56 @@
-<table class="table table-striped">
-    <thead>
-        <tr class="text-center border-2 p-4">
-            <th>No.Serie</th>
-            <th>Nombre</th>
-            <th>Marca</th>
-            <th>Costo</th>
-            <th>Precio Venta</th>
-            <th>Fecha Ingreso</th>
-            <th>Foto</th>
-            <th> </th>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Productos en el Almacén</title>
+    <style>
+        /* Estilos CSS para el PDF */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Productos en el Almacén</h1>
 
-        </tr>
-    </thead>
-    @foreach ($productos as $item)
-        <tbody>
-            <tr class="text-center p-4 py-2">
-                <th scope="row">{{$item->idProducto }}</th>
-                <td>{{$item->NombreProducto }}</td>
-                <td>{{$item->NombreMarca }}</td>
-                <td>{{$item->CostoProducto }}</td>
-                <td>{{$item->FechaIngreso }}</td>
-                <td>{{$item->PrecioVenta }}</td>
-                {{-- <td>{{$item->ImagenProducto }}</td> --}}
-                
+    <table border="1">
+        <thead>
+            <tr>
+                <th>No. Serie</th>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Costo</th>
+                <th>Cantidad</th>
+                <!-- Agrega más encabezados si es necesario -->
             </tr>
-            
+        </thead>
+        <tbody>
+            @foreach ($productos as $producto)
+                <tr>
+                    <td>{{ $producto->idProducto }}</td>
+                    <td>{{ $producto->NombreProducto }}</td>
+                    <td>{{ $producto->NombreMarca }}</td>
+                    <td>{{ $producto->CostoProducto }}</td>
+                    <td>{{ $producto->Cantidad }}</td>
+                    <!-- Agrega más columnas si es necesario -->
+                </tr>
             @endforeach
         </tbody>
-    
-</table>
+    </table>
+</body>
+</html>

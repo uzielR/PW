@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('codigoPostalphp');
             $table->string('telefono'); 
             $table->string('correoE');
+            $table->integer('estatus')->default(1);
             $table->timestamps();
         });
     }
